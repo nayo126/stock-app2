@@ -1400,6 +1400,34 @@ body > button[onclick*="auto-analysis"]:hover {
 
 </head>
 <body>
+<!-- ⚠️ HTML 取得直後にSW・キャッシュを強制削除（古いHTML再表示防止） -->
+<script>
+(function() {
+  try {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(rs) {
+        rs.forEach(function(r) { r.unregister(); });
+      });
+    }
+    if ('caches' in window) {
+      caches.keys().then(function(keys) {
+        keys.forEach(function(k) { caches.delete(k); });
+      });
+    }
+    // localStorage の app version 比較で1回だけ強制リロード
+    var V = '20260501-mobile-v3';
+    if (localStorage.getItem('_app_v') !== V) {
+      localStorage.setItem('_app_v', V);
+      // 既に強制リロード済みフラグなしなら 1回だけ reload
+      if (!sessionStorage.getItem('_reloaded_once')) {
+        sessionStorage.setItem('_reloaded_once', '1');
+        setTimeout(function() { location.reload(true); }, 100);
+      }
+    }
+  } catch (e) {}
+})();
+</script>
+
 <!-- ===== サイドバートグル (mobile) ===== -->
 <button class="macos-sidebar-toggle" onclick="document.querySelector('.macos-sidebar').classList.toggle('open')">☰</button>
 
