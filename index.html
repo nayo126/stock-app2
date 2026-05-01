@@ -6497,5 +6497,192 @@ document.addEventListener("keydown", e => {
 // Initial render
 refreshAll();
 </script>
+
+<!-- ============================================
+     自動更新スナップショット (GitHub Actions が1時間毎更新)
+     ============================================ -->
+<style>
+#auto-snapshot {
+  margin: 24px auto;
+  padding: 18px 16px;
+  max-width: 1200px;
+  background: linear-gradient(180deg, #0f1729 0%, #0a0e1a 100%);
+  border: 1px solid #1f2a44;
+  border-radius: 14px;
+  color: #e6e9f0;
+  font-family: -apple-system, "Hiragino Sans", sans-serif;
+}
+#auto-snapshot h2 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: #64ffda;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#auto-snapshot .ts {
+  font-size: 12px;
+  color: #7a8aa3;
+  margin-bottom: 14px;
+}
+.snap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.snap-card {
+  background: rgba(255,255,255,0.04);
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #1f2a44;
+}
+.snap-card .name { font-size: 11px; color: #95a3b8; }
+.snap-card .price { font-size: 16px; font-weight: 700; margin-top: 2px; }
+.snap-card .chg { font-size: 12px; margin-top: 2px; }
+.snap-card .chg.up { color: #64ffda; }
+.snap-card .chg.dn { color: #ff7392; }
+#snap-news {
+  max-height: 400px;
+  overflow-y: auto;
+}
+#snap-news .item {
+  padding: 8px 4px;
+  border-bottom: 1px solid #1f2a44;
+}
+#snap-news a {
+  color: #e6e9f0;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 1.4;
+}
+#snap-news a:hover { color: #64ffda; }
+#snap-news .src {
+  font-size: 10px;
+  color: #7a8aa3;
+  margin-top: 2px;
+}
+#snap-news h3 { font-size: 14px; color: #95a3b8; margin: 14px 0 6px; }
+#snap-stocks-grid { max-height: 500px; overflow-y: auto; }
+.snap-tabs { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+.snap-tabs button {
+  background: rgba(255,255,255,0.06);
+  color: #95a3b8;
+  border: 1px solid #1f2a44;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.snap-tabs button.active {
+  background: #64ffda;
+  color: #0a0e1a;
+  border-color: #64ffda;
+}
+</style>
+
+<section id="auto-snapshot">
+  <h2>📡 自動取得データ <span id="snap-status" style="font-size:11px;color:#7a8aa3;margin-left:auto;">読込中...</span></h2>
+  <div class="ts" id="snap-ts">--</div>
+
+  <h3 style="font-size:14px;color:#95a3b8;margin:6px 0 8px;">📈 指数</h3>
+  <div class="snap-grid" id="snap-indices"></div>
+
+  <h3 style="font-size:14px;color:#95a3b8;margin:14px 0 8px;">💹 監視銘柄（106銘柄全自動取得）</h3>
+  <div class="snap-tabs">
+    <button class="active" data-sort="chg-desc">📈上昇順</button>
+    <button data-sort="chg-asc">📉下落順</button>
+    <button data-sort="vol">🔥出来高</button>
+    <button data-sort="code">コード順</button>
+  </div>
+  <div class="snap-grid" id="snap-stocks-grid"></div>
+
+  <h3 style="font-size:14px;color:#95a3b8;margin:14px 0 8px;">📰 最新ニュース（自動収集）</h3>
+  <div id="snap-news"></div>
+</section>
+
+<script>
+(async function() {
+  const $status = document.getElementById('snap-status');
+  const $ts = document.getElementById('snap-ts');
+  const $indices = document.getElementById('snap-indices');
+  const $stocksGrid = document.getElementById('snap-stocks-grid');
+  const $news = document.getElementById('snap-news');
+
+  let snapshotData = null;
+
+  function fmtNum(n) { return n == null ? '--' : n.toLocaleString('ja-JP', {maximumFractionDigits: 2}); }
+  function fmtPct(n) { return n == null ? '' : (n >= 0 ? '+' : '') + n.toFixed(2) + '%'; }
+
+  function renderIndices(d) {
+    $indices.innerHTML = Object.entries(d.indices || {}).map(([name, v]) => {
+      const cls = v.change >= 0 ? 'up' : 'dn';
+      return `<div class="snap-card">
+        <div class="name">${name}</div>
+        <div class="price">${fmtNum(v.price)}</div>
+        <div class="chg ${cls}">${fmtPct(v.change_pct)} (${v.change >= 0 ? '+' : ''}${fmtNum(v.change)})</div>
+      </div>`;
+    }).join('');
+  }
+
+  function renderStocks(sort) {
+    if (!snapshotData) return;
+    let entries = Object.entries(snapshotData.stocks || {});
+    if (sort === 'chg-desc') entries.sort((a,b) => (b[1].change_pct||-9999) - (a[1].change_pct||-9999));
+    else if (sort === 'chg-asc') entries.sort((a,b) => (a[1].change_pct||9999) - (b[1].change_pct||9999));
+    else if (sort === 'vol') entries.sort((a,b) => (b[1].volume||0) - (a[1].volume||0));
+    else entries.sort((a,b) => a[0].localeCompare(b[0]));
+
+    $stocksGrid.innerHTML = entries.map(([code, v]) => {
+      const cls = (v.change||0) >= 0 ? 'up' : 'dn';
+      return `<div class="snap-card">
+        <div class="name">${code}</div>
+        <div class="price">${fmtNum(v.price)}</div>
+        <div class="chg ${cls}">${fmtPct(v.change_pct)}</div>
+      </div>`;
+    }).join('');
+  }
+
+  function renderNews(d) {
+    $news.innerHTML = (d.news || []).slice(0, 50).map(n => `
+      <div class="item">
+        <a href="${n.link}" target="_blank" rel="noopener">${n.title}</a>
+        <div class="src">${n.source} · ${n.published ? new Date(n.published).toLocaleString('ja-JP') : ''}</div>
+      </div>
+    `).join('');
+  }
+
+  document.querySelectorAll('.snap-tabs button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.snap-tabs button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderStocks(btn.dataset.sort);
+    });
+  });
+
+  async function load() {
+    try {
+      const url = './data/snapshot.json?t=' + Date.now();
+      const res = await fetch(url, {cache: 'no-store'});
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const d = await res.json();
+      snapshotData = d;
+      $ts.textContent = '更新: ' + new Date(d.generated_at).toLocaleString('ja-JP');
+      $status.textContent = `✓ ${Object.keys(d.stocks||{}).length}銘柄 / ${(d.news||[]).length}ニュース`;
+      renderIndices(d);
+      renderStocks('chg-desc');
+      renderNews(d);
+    } catch (e) {
+      $status.textContent = '⚠️ snapshot.json 未取得';
+      $ts.textContent = '初回 GitHub Actions 実行待ち';
+      console.error('[snapshot] load error:', e);
+    }
+  }
+  load();
+  // 開いてる間も10分毎に再fetch（裏でcommitされたら拾う）
+  setInterval(load, 10 * 60 * 1000);
+})();
+</script>
+
 </body>
 </html>

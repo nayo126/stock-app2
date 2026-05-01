@@ -1,0 +1,47 @@
+name: Update Stock Snapshot
+
+on:
+  schedule:
+    # 1時間毎 (UTC). 日中(JST 9-23時)のマーケット時間中心
+    - cron: '0 * * * *'
+  workflow_dispatch:  # 手動実行も可能
+
+permissions:
+  contents: write
+
+concurrency:
+  group: snapshot
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install deps
+        run: |
+          pip install --upgrade pip
+          pip install yfinance feedparser
+
+      - name: Fetch data
+        run: python scripts/fetch_data.py
+
+      - name: Commit & push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/snapshot.json
+          if git diff --staged --quiet; then
+            echo "no changes"
+            exit 0
+          fi
+          git commit -m "auto: snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push

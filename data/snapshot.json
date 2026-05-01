@@ -1,0 +1,2467 @@
+{
+  "generated_at": "2026-05-01T16:20:18.081318+09:00",
+  "generated_at_utc": "2026-05-01T07:20:18.081458+00:00",
+  "stocks_count": 106,
+  "indices": {
+    "日経平均": {
+      "price": 59513.12,
+      "prev_close": 59284.92,
+      "change": 228.2,
+      "change_pct": 0.38
+    },
+    "ダウ": {
+      "price": 49652.14,
+      "prev_close": 48861.81,
+      "change": 790.33,
+      "change_pct": 1.62
+    },
+    "S&P500": {
+      "price": 7209.01,
+      "prev_close": 7135.95,
+      "change": 73.06,
+      "change_pct": 1.02
+    },
+    "ナスダック": {
+      "price": 24892.31,
+      "prev_close": 24673.24,
+      "change": 219.07,
+      "change_pct": 0.89
+    },
+    "VIX": {
+      "price": 16.89,
+      "prev_close": 18.81,
+      "change": -1.92,
+      "change_pct": -10.21
+    },
+    "ドル円": {
+      "price": 156.31,
+      "prev_close": 160.18,
+      "change": -3.87,
+      "change_pct": -2.42
+    }
+  },
+  "stocks": {
+    "1803": {
+      "price": 2996.0,
+      "open": 3056.0,
+      "high": 3064.0,
+      "low": 2990.5,
+      "volume": 2449700,
+      "prev_close": 3038.0,
+      "change": -42.0,
+      "change_pct": -1.38
+    },
+    "1861": {
+      "price": 1496.0,
+      "open": 1519.0,
+      "high": 1519.0,
+      "low": 1488.0,
+      "volume": 594700,
+      "prev_close": 1503.0,
+      "change": -7.0,
+      "change_pct": -0.47
+    },
+    "2134": {
+      "price": 33.0,
+      "open": 29.0,
+      "high": 33.0,
+      "low": 29.0,
+      "volume": 10992500,
+      "prev_close": 29.0,
+      "change": 4.0,
+      "change_pct": 13.79
+    },
+    "2269": {
+      "price": 3714.0,
+      "open": 3686.0,
+      "high": 3730.0,
+      "low": 3670.0,
+      "volume": 724100,
+      "prev_close": 3709.0,
+      "change": 5.0,
+      "change_pct": 0.13
+    },
+    "2334": {
+      "price": 502.0,
+      "open": 504.0,
+      "high": 528.0,
+      "low": 477.0,
+      "volume": 5755000,
+      "prev_close": 504.0,
+      "change": -2.0,
+      "change_pct": -0.4
+    },
+    "2337": {
+      "price": 496.0,
+      "open": 499.0,
+      "high": 500.0,
+      "low": 490.0,
+      "volume": 953200,
+      "prev_close": 500.0,
+      "change": -4.0,
+      "change_pct": -0.8
+    },
+    "2438": {
+      "price": 342.0,
+      "open": 343.0,
+      "high": 344.0,
+      "low": 341.0,
+      "volume": 32400,
+      "prev_close": 343.0,
+      "change": -1.0,
+      "change_pct": -0.29
+    },
+    "2502": {
+      "price": 1550.0,
+      "open": 1532.0,
+      "high": 1550.0,
+      "low": 1525.0,
+      "volume": 6537500,
+      "prev_close": 1548.0,
+      "change": 2.0,
+      "change_pct": 0.13
+    },
+    "2503": {
+      "price": 2498.0,
+      "open": 2470.0,
+      "high": 2501.5,
+      "low": 2456.0,
+      "volume": 2600300,
+      "prev_close": 2479.5,
+      "change": 18.5,
+      "change_pct": 0.75
+    },
+    "2586": {
+      "price": 106.0,
+      "open": 108.0,
+      "high": 109.0,
+      "low": 106.0,
+      "volume": 635300,
+      "prev_close": 108.0,
+      "change": -2.0,
+      "change_pct": -1.85
+    },
+    "2702": {
+      "price": 8130.0,
+      "open": 8120.0,
+      "high": 8170.0,
+      "low": 8090.0,
+      "volume": 216300,
+      "prev_close": 8120.0,
+      "change": 10.0,
+      "change_pct": 0.12
+    },
+    "2721": {
+      "price": 112.0,
+      "open": 123.0,
+      "high": 123.0,
+      "low": 110.0,
+      "volume": 443300,
+      "prev_close": 121.0,
+      "change": -9.0,
+      "change_pct": -7.44
+    },
+    "2802": {
+      "price": 4882.0,
+      "open": 4904.0,
+      "high": 4936.0,
+      "low": 4792.0,
+      "volume": 3912900,
+      "prev_close": 5090.0,
+      "change": -208.0,
+      "change_pct": -4.09
+    },
+    "2811": {
+      "price": 2575.0,
+      "open": 2659.0,
+      "high": 2659.0,
+      "low": 2535.5,
+      "volume": 1038900,
+      "prev_close": 2688.0,
+      "change": -113.0,
+      "change_pct": -4.2
+    },
+    "2897": {
+      "price": 2815.5,
+      "open": 2797.5,
+      "high": 2821.5,
+      "low": 2776.0,
+      "volume": 994500,
+      "prev_close": 2803.5,
+      "change": 12.0,
+      "change_pct": 0.43
+    },
+    "3040": {
+      "price": 1774.0,
+      "open": 1771.0,
+      "high": 1781.0,
+      "low": 1760.0,
+      "volume": 31500,
+      "prev_close": 1784.0,
+      "change": -10.0,
+      "change_pct": -0.56
+    },
+    "3048": {
+      "price": 1599.5,
+      "open": 1612.0,
+      "high": 1619.5,
+      "low": 1592.5,
+      "volume": 371700,
+      "prev_close": 1620.5,
+      "change": -21.0,
+      "change_pct": -1.3
+    },
+    "3086": {
+      "price": 2240.5,
+      "open": 2270.0,
+      "high": 2285.0,
+      "low": 2200.0,
+      "volume": 1411800,
+      "prev_close": 2285.5,
+      "change": -45.0,
+      "change_pct": -1.97
+    },
+    "3087": {
+      "price": 2761.0,
+      "open": 2768.0,
+      "high": 2773.0,
+      "low": 2739.0,
+      "volume": 99700,
+      "prev_close": 2765.0,
+      "change": -4.0,
+      "change_pct": -0.14
+    },
+    "3099": {
+      "price": 2969.5,
+      "open": 2933.0,
+      "high": 3001.0,
+      "low": 2930.5,
+      "volume": 1328500,
+      "prev_close": 2969.0,
+      "change": 0.5,
+      "change_pct": 0.02
+    },
+    "3197": {
+      "price": 3013.0,
+      "open": 3001.0,
+      "high": 3043.0,
+      "low": 2984.5,
+      "volume": 1038000,
+      "prev_close": 3008.0,
+      "change": 5.0,
+      "change_pct": 0.17
+    },
+    "3350": {
+      "price": 325.0,
+      "open": 314.0,
+      "high": 327.0,
+      "low": 312.0,
+      "volume": 12920300,
+      "prev_close": 326.0,
+      "change": -1.0,
+      "change_pct": -0.31
+    },
+    "3382": {
+      "price": 1918.5,
+      "open": 1851.0,
+      "high": 1918.5,
+      "low": 1850.5,
+      "volume": 5234400,
+      "prev_close": 1871.0,
+      "change": 47.5,
+      "change_pct": 2.54
+    },
+    "3397": {
+      "price": 4008.0,
+      "open": 4039.0,
+      "high": 4039.0,
+      "low": 3996.0,
+      "volume": 303500,
+      "prev_close": 4045.0,
+      "change": -37.0,
+      "change_pct": -0.91
+    },
+    "3543": {
+      "price": 3010.0,
+      "open": 3050.0,
+      "high": 3050.0,
+      "low": 3005.0,
+      "volume": 127400,
+      "prev_close": 3050.0,
+      "change": -40.0,
+      "change_pct": -1.31
+    },
+    "3664": {
+      "price": 34.0,
+      "open": 33.0,
+      "high": 34.0,
+      "low": 33.0,
+      "volume": 3685700,
+      "prev_close": 34.0,
+      "change": 0.0,
+      "change_pct": 0.0
+    },
+    "3687": {
+      "price": 1285.0,
+      "open": 1256.0,
+      "high": 1297.0,
+      "low": 1251.0,
+      "volume": 196900,
+      "prev_close": 1264.0,
+      "change": 21.0,
+      "change_pct": 1.66
+    },
+    "3692": {
+      "price": 6040.0,
+      "open": 5850.0,
+      "high": 6050.0,
+      "low": 5850.0,
+      "volume": 97500,
+      "prev_close": 5900.0,
+      "change": 140.0,
+      "change_pct": 2.37
+    },
+    "3773": {
+      "price": 1057.0,
+      "open": 1072.0,
+      "high": 1075.0,
+      "low": 1052.0,
+      "volume": 46500,
+      "prev_close": 1076.0,
+      "change": -19.0,
+      "change_pct": -1.77
+    },
+    "3923": {
+      "price": 861.6,
+      "open": 845.0,
+      "high": 869.3,
+      "low": 839.1,
+      "volume": 1861900,
+      "prev_close": 856.3,
+      "change": 5.3,
+      "change_pct": 0.62
+    },
+    "4046": {
+      "price": 1850.0,
+      "open": 1875.0,
+      "high": 1876.0,
+      "low": 1844.0,
+      "volume": 288900,
+      "prev_close": 1871.0,
+      "change": -21.0,
+      "change_pct": -1.12
+    },
+    "4062": {
+      "price": 13375.0,
+      "open": 13245.0,
+      "high": 13640.0,
+      "low": 13035.0,
+      "volume": 5100600,
+      "prev_close": 13480.0,
+      "change": -105.0,
+      "change_pct": -0.78
+    },
+    "4171": {
+      "price": 1274.0,
+      "open": 1286.0,
+      "high": 1286.0,
+      "low": 1274.0,
+      "volume": 3200,
+      "prev_close": 1290.0,
+      "change": -16.0,
+      "change_pct": -1.24
+    },
+    "4182": {
+      "price": 4368.0,
+      "open": 4335.0,
+      "high": 4433.0,
+      "low": 4296.0,
+      "volume": 697500,
+      "prev_close": 4400.0,
+      "change": -32.0,
+      "change_pct": -0.73
+    },
+    "4493": {
+      "price": 1575.0,
+      "open": 1562.0,
+      "high": 1580.0,
+      "low": 1562.0,
+      "volume": 45900,
+      "prev_close": 1567.0,
+      "change": 8.0,
+      "change_pct": 0.51
+    },
+    "4502": {
+      "price": 5239.0,
+      "open": 5260.0,
+      "high": 5260.0,
+      "low": 5191.0,
+      "volume": 2628900,
+      "prev_close": 5270.0,
+      "change": -31.0,
+      "change_pct": -0.59
+    },
+    "4564": {
+      "price": 23.0,
+      "open": 23.0,
+      "high": 25.0,
+      "low": 23.0,
+      "volume": 179113400,
+      "prev_close": 24.0,
+      "change": -1.0,
+      "change_pct": -4.17
+    },
+    "4568": {
+      "price": 2616.5,
+      "open": 2597.0,
+      "high": 2649.5,
+      "low": 2567.5,
+      "volume": 7940900,
+      "prev_close": 2588.5,
+      "change": 28.0,
+      "change_pct": 1.08
+    },
+    "4661": {
+      "price": 2223.0,
+      "open": 2230.0,
+      "high": 2232.0,
+      "low": 2191.0,
+      "volume": 9239000,
+      "prev_close": 2188.5,
+      "change": 34.5,
+      "change_pct": 1.58
+    },
+    "4689": {
+      "price": 419.7,
+      "open": 411.3,
+      "high": 419.7,
+      "low": 410.0,
+      "volume": 12586700,
+      "prev_close": 412.3,
+      "change": 7.4,
+      "change_pct": 1.79
+    },
+    "5016": {
+      "price": 4770.0,
+      "open": 4850.0,
+      "high": 4873.0,
+      "low": 4736.0,
+      "volume": 14941500,
+      "prev_close": 4790.0,
+      "change": -20.0,
+      "change_pct": -0.42
+    },
+    "5103": {
+      "price": 43.0,
+      "open": 43.0,
+      "high": 44.0,
+      "low": 43.0,
+      "volume": 78100,
+      "prev_close": 43.0,
+      "change": 0.0,
+      "change_pct": 0.0
+    },
+    "5802": {
+      "price": 9900.0,
+      "open": 10280.0,
+      "high": 10320.0,
+      "low": 9900.0,
+      "volume": 4356600,
+      "prev_close": 10190.0,
+      "change": -290.0,
+      "change_pct": -2.85
+    },
+    "5803": {
+      "price": 5808.0,
+      "open": 5983.0,
+      "high": 6027.0,
+      "low": 5803.0,
+      "volume": 28397000,
+      "prev_close": 5971.0,
+      "change": -163.0,
+      "change_pct": -2.73
+    },
+    "5856": {
+      "price": 25.0,
+      "open": 25.0,
+      "high": 25.0,
+      "low": 24.0,
+      "volume": 1542500,
+      "prev_close": 25.0,
+      "change": 0.0,
+      "change_pct": 0.0
+    },
+    "6146": {
+      "price": 72250.0,
+      "open": 73860.0,
+      "high": 74460.0,
+      "low": 72200.0,
+      "volume": 1636400,
+      "prev_close": 74010.0,
+      "change": -1760.0,
+      "change_pct": -2.38
+    },
+    "6203": {
+      "price": 1525.0,
+      "open": 1524.0,
+      "high": 1540.0,
+      "low": 1503.0,
+      "volume": 104400,
+      "prev_close": 1521.0,
+      "change": 4.0,
+      "change_pct": 0.26
+    },
+    "6208": {
+      "price": 2200.0,
+      "open": 2158.0,
+      "high": 2214.0,
+      "low": 2133.0,
+      "volume": 76700,
+      "prev_close": 2147.0,
+      "change": 53.0,
+      "change_pct": 2.47
+    },
+    "6378": {
+      "price": 1294.0,
+      "open": 1286.0,
+      "high": 1303.0,
+      "low": 1273.0,
+      "volume": 217000,
+      "prev_close": 1285.0,
+      "change": 9.0,
+      "change_pct": 0.7
+    },
+    "6458": {
+      "price": 1225.0,
+      "open": 1215.0,
+      "high": 1229.0,
+      "low": 1209.0,
+      "volume": 140900,
+      "prev_close": 1219.0,
+      "change": 6.0,
+      "change_pct": 0.49
+    },
+    "6471": {
+      "price": 1260.5,
+      "open": 1275.5,
+      "high": 1281.0,
+      "low": 1244.5,
+      "volume": 2950500,
+      "prev_close": 1268.0,
+      "change": -7.5,
+      "change_pct": -0.59
+    },
+    "6501": {
+      "price": 4795.0,
+      "open": 4800.0,
+      "high": 4861.0,
+      "low": 4775.0,
+      "volume": 11393000,
+      "prev_close": 4882.0,
+      "change": -87.0,
+      "change_pct": -1.78
+    },
+    "6503": {
+      "price": 6071.0,
+      "open": 6269.0,
+      "high": 6330.0,
+      "low": 6061.0,
+      "volume": 6295700,
+      "prev_close": 6231.0,
+      "change": -160.0,
+      "change_pct": -2.57
+    },
+    "6506": {
+      "price": 5521.0,
+      "open": 5527.0,
+      "high": 5648.0,
+      "low": 5450.0,
+      "volume": 3308100,
+      "prev_close": 5520.0,
+      "change": 1.0,
+      "change_pct": 0.02
+    },
+    "6544": {
+      "price": 1626.5,
+      "open": 1607.0,
+      "high": 1648.5,
+      "low": 1599.5,
+      "volume": 573400,
+      "prev_close": 1594.0,
+      "change": 32.5,
+      "change_pct": 2.04
+    },
+    "6584": {
+      "price": 758.0,
+      "open": 745.0,
+      "high": 766.0,
+      "low": 731.0,
+      "volume": 505200,
+      "prev_close": 742.0,
+      "change": 16.0,
+      "change_pct": 2.16
+    },
+    "6597": {
+      "price": 2642.0,
+      "open": 2598.0,
+      "high": 2674.0,
+      "low": 2557.0,
+      "volume": 100700,
+      "prev_close": 2575.0,
+      "change": 67.0,
+      "change_pct": 2.6
+    },
+    "6758": {
+      "price": 3127.0,
+      "open": 3085.0,
+      "high": 3142.0,
+      "low": 3075.0,
+      "volume": 14988600,
+      "prev_close": 3113.0,
+      "change": 14.0,
+      "change_pct": 0.45
+    },
+    "6857": {
+      "price": 27815.0,
+      "open": 28990.0,
+      "high": 29160.0,
+      "low": 27800.0,
+      "volume": 7144100,
+      "prev_close": 28260.0,
+      "change": -445.0,
+      "change_pct": -1.57
+    },
+    "6861": {
+      "price": 76460.0,
+      "open": 72470.0,
+      "high": 76790.0,
+      "low": 72470.0,
+      "volume": 1667000,
+      "prev_close": 71300.0,
+      "change": 5160.0,
+      "change_pct": 7.24
+    },
+    "6954": {
+      "price": 6820.0,
+      "open": 6775.0,
+      "high": 6918.0,
+      "low": 6693.0,
+      "volume": 4880600,
+      "prev_close": 6875.0,
+      "change": -55.0,
+      "change_pct": -0.8
+    },
+    "7003": {
+      "price": 5594.0,
+      "open": 5632.0,
+      "high": 5657.0,
+      "low": 5552.0,
+      "volume": 2188200,
+      "prev_close": 5615.0,
+      "change": -21.0,
+      "change_pct": -0.37
+    },
+    "7011": {
+      "price": 4586.0,
+      "open": 4562.0,
+      "high": 4638.0,
+      "low": 4543.0,
+      "volume": 13366800,
+      "prev_close": 4615.0,
+      "change": -29.0,
+      "change_pct": -0.63
+    },
+    "7012": {
+      "price": 3151.0,
+      "open": 3250.0,
+      "high": 3284.0,
+      "low": 3147.0,
+      "volume": 8817000,
+      "prev_close": 3217.0,
+      "change": -66.0,
+      "change_pct": -2.05
+    },
+    "7201": {
+      "price": 350.7,
+      "open": 352.1,
+      "high": 353.0,
+      "low": 347.9,
+      "volume": 23522400,
+      "prev_close": 356.0,
+      "change": -5.3,
+      "change_pct": -1.49
+    },
+    "7203": {
+      "price": 3000.0,
+      "open": 3000.0,
+      "high": 3022.0,
+      "low": 2971.0,
+      "volume": 21904100,
+      "prev_close": 3023.0,
+      "change": -23.0,
+      "change_pct": -0.76
+    },
+    "7412": {
+      "price": 655.0,
+      "open": 658.0,
+      "high": 659.0,
+      "low": 652.0,
+      "volume": 201400,
+      "prev_close": 656.0,
+      "change": -1.0,
+      "change_pct": -0.15
+    },
+    "7527": {
+      "price": 52.0,
+      "open": 52.0,
+      "high": 53.0,
+      "low": 52.0,
+      "volume": 1375500,
+      "prev_close": 52.0,
+      "change": 0.0,
+      "change_pct": 0.0
+    },
+    "7581": {
+      "price": 5050.0,
+      "open": 5020.0,
+      "high": 5070.0,
+      "low": 4955.0,
+      "volume": 388400,
+      "prev_close": 5080.0,
+      "change": -30.0,
+      "change_pct": -0.59
+    },
+    "7711": {
+      "price": 5920.0,
+      "open": 5960.0,
+      "high": 6010.0,
+      "low": 5870.0,
+      "volume": 69800,
+      "prev_close": 6000.0,
+      "change": -80.0,
+      "change_pct": -1.33
+    },
+    "7974": {
+      "price": 7597.0,
+      "open": 7600.0,
+      "high": 7626.0,
+      "low": 7477.0,
+      "volume": 9732200,
+      "prev_close": 7687.0,
+      "change": -90.0,
+      "change_pct": -1.17
+    },
+    "8001": {
+      "price": 1987.0,
+      "open": 1919.5,
+      "high": 2031.5,
+      "low": 1901.0,
+      "volume": 43957400,
+      "prev_close": 1938.0,
+      "change": 49.0,
+      "change_pct": 2.53
+    },
+    "8035": {
+      "price": 47450.0,
+      "open": 47000.0,
+      "high": 48190.0,
+      "low": 46710.0,
+      "volume": 5915900,
+      "prev_close": 44390.0,
+      "change": 3060.0,
+      "change_pct": 6.89
+    },
+    "8058": {
+      "price": 5219.0,
+      "open": 4991.0,
+      "high": 5445.0,
+      "low": 4842.0,
+      "volume": 46978900,
+      "prev_close": 4990.0,
+      "change": 229.0,
+      "change_pct": 4.59
+    },
+    "8093": {
+      "price": 1889.0,
+      "open": 1855.0,
+      "high": 1893.0,
+      "low": 1853.0,
+      "volume": 33300,
+      "prev_close": 1868.0,
+      "change": 21.0,
+      "change_pct": 1.12
+    },
+    "8179": {
+      "price": 1365.0,
+      "open": 1366.0,
+      "high": 1369.0,
+      "low": 1350.0,
+      "volume": 235200,
+      "prev_close": 1371.0,
+      "change": -6.0,
+      "change_pct": -0.44
+    },
+    "8267": {
+      "price": 1551.5,
+      "open": 1520.0,
+      "high": 1565.5,
+      "low": 1510.0,
+      "volume": 7170500,
+      "prev_close": 1510.0,
+      "change": 41.5,
+      "change_pct": 2.75
+    },
+    "8304": {
+      "price": 2526.0,
+      "open": 2508.5,
+      "high": 2537.5,
+      "low": 2483.5,
+      "volume": 1075600,
+      "prev_close": 2518.5,
+      "change": 7.5,
+      "change_pct": 0.3
+    },
+    "8306": {
+      "price": 2798.0,
+      "open": 2800.0,
+      "high": 2813.0,
+      "low": 2754.0,
+      "volume": 28643100,
+      "prev_close": 2817.0,
+      "change": -19.0,
+      "change_pct": -0.67
+    },
+    "8308": {
+      "price": 1927.0,
+      "open": 1916.0,
+      "high": 1958.0,
+      "low": 1892.5,
+      "volume": 5900900,
+      "prev_close": 1938.5,
+      "change": -11.5,
+      "change_pct": -0.59
+    },
+    "8316": {
+      "price": 5541.0,
+      "open": 5512.0,
+      "high": 5562.0,
+      "low": 5431.0,
+      "volume": 8711900,
+      "prev_close": 5512.0,
+      "change": 29.0,
+      "change_pct": 0.53
+    },
+    "8331": {
+      "price": 2154.0,
+      "open": 2161.0,
+      "high": 2189.0,
+      "low": 2124.0,
+      "volume": 2209800,
+      "prev_close": 2174.0,
+      "change": -20.0,
+      "change_pct": -0.92
+    },
+    "8411": {
+      "price": 6704.0,
+      "open": 6677.0,
+      "high": 6731.0,
+      "low": 6584.0,
+      "volume": 7112700,
+      "prev_close": 6722.0,
+      "change": -18.0,
+      "change_pct": -0.27
+    },
+    "8566": {
+      "price": 6120.0,
+      "open": 6050.0,
+      "high": 6130.0,
+      "low": 6020.0,
+      "volume": 30700,
+      "prev_close": 6100.0,
+      "change": 20.0,
+      "change_pct": 0.33
+    },
+    "8750": {
+      "price": 1423.0,
+      "open": 1419.5,
+      "high": 1426.0,
+      "low": 1408.5,
+      "volume": 5876800,
+      "prev_close": 1440.0,
+      "change": -17.0,
+      "change_pct": -1.18
+    },
+    "8771": {
+      "price": 1745.0,
+      "open": 1762.0,
+      "high": 1762.0,
+      "low": 1727.0,
+      "volume": 123700,
+      "prev_close": 1765.0,
+      "change": -20.0,
+      "change_pct": -1.13
+    },
+    "8892": {
+      "price": 1160.0,
+      "open": 1171.0,
+      "high": 1176.0,
+      "low": 1156.0,
+      "volume": 277400,
+      "prev_close": 1175.0,
+      "change": -15.0,
+      "change_pct": -1.28
+    },
+    "8953": {
+      "price": 115700.0,
+      "open": 116500.0,
+      "high": 116800.0,
+      "low": 115300.0,
+      "volume": 17126,
+      "prev_close": 115800.0,
+      "change": -100.0,
+      "change_pct": -0.09
+    },
+    "9201": {
+      "price": 2527.0,
+      "open": 2529.0,
+      "high": 2553.0,
+      "low": 2482.5,
+      "volume": 5274100,
+      "prev_close": 2454.0,
+      "change": 73.0,
+      "change_pct": 2.97
+    },
+    "9202": {
+      "price": 2709.5,
+      "open": 2639.5,
+      "high": 2720.0,
+      "low": 2623.0,
+      "volume": 4982900,
+      "prev_close": 2601.5,
+      "change": 108.0,
+      "change_pct": 4.15
+    },
+    "9227": {
+      "price": 1027.0,
+      "open": 1025.0,
+      "high": 1044.0,
+      "low": 1018.0,
+      "volume": 159400,
+      "prev_close": 1024.0,
+      "change": 3.0,
+      "change_pct": 0.29
+    },
+    "9279": {
+      "price": 4280.0,
+      "open": 4440.0,
+      "high": 4440.0,
+      "low": 4260.0,
+      "volume": 106900,
+      "prev_close": 4370.0,
+      "change": -90.0,
+      "change_pct": -2.06
+    },
+    "9432": {
+      "price": 152.0,
+      "open": 151.3,
+      "high": 152.2,
+      "low": 150.9,
+      "volume": 174375200,
+      "prev_close": 152.5,
+      "change": -0.5,
+      "change_pct": -0.33
+    },
+    "9433": {
+      "price": 2548.0,
+      "open": 2553.5,
+      "high": 2561.0,
+      "low": 2522.0,
+      "volume": 7724800,
+      "prev_close": 2582.5,
+      "change": -34.5,
+      "change_pct": -1.34
+    },
+    "9434": {
+      "price": 220.6,
+      "open": 219.5,
+      "high": 220.6,
+      "low": 218.2,
+      "volume": 60774500,
+      "prev_close": 221.9,
+      "change": -1.3,
+      "change_pct": -0.59
+    },
+    "9605": {
+      "price": 5760.0,
+      "open": 5820.0,
+      "high": 5830.0,
+      "low": 5730.0,
+      "volume": 87300,
+      "prev_close": 5820.0,
+      "change": -60.0,
+      "change_pct": -1.03
+    },
+    "9828": {
+      "price": 2780.0,
+      "open": 2783.0,
+      "high": 2800.0,
+      "low": 2762.0,
+      "volume": 48200,
+      "prev_close": 2783.0,
+      "change": -3.0,
+      "change_pct": -0.11
+    },
+    "9831": {
+      "price": 531.6,
+      "open": 523.9,
+      "high": 541.2,
+      "low": 520.6,
+      "volume": 4919800,
+      "prev_close": 522.3,
+      "change": 9.3,
+      "change_pct": 1.78
+    },
+    "9861": {
+      "price": 3182.0,
+      "open": 3159.0,
+      "high": 3182.0,
+      "low": 3129.0,
+      "volume": 292200,
+      "prev_close": 3159.0,
+      "change": 23.0,
+      "change_pct": 0.73
+    },
+    "9882": {
+      "price": 1506.0,
+      "open": 1511.0,
+      "high": 1513.0,
+      "low": 1503.0,
+      "volume": 91400,
+      "prev_close": 1517.0,
+      "change": -11.0,
+      "change_pct": -0.73
+    },
+    "9983": {
+      "price": 72890.0,
+      "open": 73000.0,
+      "high": 73900.0,
+      "low": 72420.0,
+      "volume": 891200,
+      "prev_close": 73590.0,
+      "change": -700.0,
+      "change_pct": -0.95
+    },
+    "9984": {
+      "price": 5424.0,
+      "open": 5278.0,
+      "high": 5466.0,
+      "low": 5249.0,
+      "volume": 72065400,
+      "prev_close": 5219.0,
+      "change": 205.0,
+      "change_pct": 3.93
+    }
+  },
+  "news": [
+    {
+      "title": "【大化け期待株ランキング】宇宙ベンチャー・Synspective“3期後の売上高成長率”が115％超えでダントツ　「テンバガーを達成してもおかしくない」と投資のプロも熱視線(マネーポストWEB)",
+      "link": "https://news.yahoo.co.jp/articles/275c781c7b4f67ec271563b43f2831694929abc7?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T22:15:00+00:00",
+      "ts": 1777587300
+    },
+    {
+      "title": "Idacorp reaffirms $6.25-$6.45 2026 EPS guidance while trimming hydropower outlook to 5.5M-7.0M MWh",
+      "link": "https://seekingalpha.com/news/4583628-idacorp-reaffirms-6_25-6_45-2026-eps-guidance-while-trimming-hydropower-outlook-to-5_5mminus?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-04-30T22:14:27+00:00",
+      "ts": 1777587267
+    },
+    {
+      "title": "サンリオ、常務不正報酬疑いで調査委設置(共同通信)",
+      "link": "https://news.yahoo.co.jp/articles/114ff5832f335fee20ac70d1b4edaf583db64737?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T22:14:22+00:00",
+      "ts": 1777587262
+    },
+    {
+      "title": "XPeng hits 31,011 April deliveries, up 13% M/M; launches flagship GX SUV and expands European production",
+      "link": "https://seekingalpha.com/news/4583625-xpeng-hits-31011-april-deliveries-up-13-mm-launches-flagship-gx-suv-and-expands-european-production?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-04-30T22:13:58+00:00",
+      "ts": 1777587238
+    },
+    {
+      "title": "LPL forecasts 2026 core G&A at $2.155B-$2.19B as it plans $125M Q2 buybacks",
+      "link": "https://seekingalpha.com/news/4583627-lpl-forecasts-2026-core-g-and-a-at-2_155b-2_19b-as-it-plans-125m-q2-buybacks?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-04-30T22:13:13+00:00",
+      "ts": 1777587193
+    },
+    {
+      "title": "Repsol upgraded to Buy at Goldman on refining upside, undemanding valuation",
+      "link": "https://www.investing.com/news/stock-market-news/repsol-upgraded-to-buy-at-goldman-on-refining-upside-undemanding-valuation-4652043",
+      "source": "Investing.com",
+      "published": "2026-04-30T22:12:58+00:00",
+      "ts": 1777587178
+    },
+    {
+      "title": "「めちゃくちゃうまいぞ」「汁まで完飲しました」丸亀製麺の“リピート続出メニュー”ご飯もついて満足感スゴい！「並盛りでもお腹いっぱい」(ダイヤモンド・オンライン)",
+      "link": "https://news.yahoo.co.jp/articles/2c751c98c2fe7e729852ba3d890bbd04e0ba59b2?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T22:12:19+00:00",
+      "ts": 1777587139
+    },
+    {
+      "title": "日本の空母だけになぜ？ 飛行甲板の端っこから飛び出た「ナゾの耳」の正体 米英にはない独自装備の秘密(乗りものニュース)",
+      "link": "https://news.yahoo.co.jp/articles/b27c90aa43876bb7d0e2c7f3c1bf25c24b720ff8?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T22:12:00+00:00",
+      "ts": 1777587120
+    },
+    {
+      "title": "「2本買い足しました」「シルエットがきれい」ユニクロの“絶賛パンツ”脚のラインをカバーできて優秀！「気持ちいいし動きやすい」 - 明日なに着てく？",
+      "link": "https://diamond.jp/articles/-/388610",
+      "source": "Diamond Online",
+      "published": "2026-04-30T22:11:00+00:00",
+      "ts": 1777587060
+    },
+    {
+      "title": "「“青”じゃダメなの？」謎の矢印信号「←↑→」なぜ存在!? ついつい迷っちゃう「“全方向”矢印」がわざわざ作られた“深すぎる理由”とは！(くるまのニュース)",
+      "link": "https://news.yahoo.co.jp/articles/5954df867d8f391032518828a75b4695355fa8d3?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T22:10:00+00:00",
+      "ts": 1777587000
+    },
+    {
+      "title": "アームも360°回転！　車載スマホホルダー新時代の使い勝手とは(ベストカーWeb)",
+      "link": "https://news.yahoo.co.jp/articles/d27867fe0d7d79340ada58c6cd757ca78e039a15?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T22:05:51+00:00",
+      "ts": 1777586751
+    },
+    {
+      "title": "Blue Owl sold half of SpaceX's stake at a $1.25T valuation",
+      "link": "https://seekingalpha.com/news/4583614-blue-owl-sold-half-of-spacex-stake-at-125t-valuation?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-04-30T22:05:36+00:00",
+      "ts": 1777586736
+    },
+    {
+      "title": "Japan stocks higher at close of trade; Nikkei 225 up 0.27%",
+      "link": "https://www.investing.com/news/stock-market-news/japan-stocks-higher-at-close-of-trade-nikkei-225-up-027-4652023",
+      "source": "Investing.com",
+      "published": "2026-04-30T22:05:04+00:00",
+      "ts": 1777586704
+    },
+    {
+      "title": "円急騰、一時155円台(共同通信)",
+      "link": "https://news.yahoo.co.jp/articles/aecc16a07631ef8e68fa1b9d9ee5dcd67a01d722?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T22:04:01+00:00",
+      "ts": 1777586641
+    },
+    {
+      "title": "Rivian revises DOE loan down to $4.5B for Georgia factory",
+      "link": "https://seekingalpha.com/news/4583618-rivian-revises-doe-loan-down-to-45b-for-georgia-factory?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-04-30T22:03:26+00:00",
+      "ts": 1777586606
+    },
+    {
+      "title": "西日本シティ銀行、「博多どんたく」への参加自粛　顧客名入り画像拡散受け...2日前に発表(J-CASTニュース)",
+      "link": "https://news.yahoo.co.jp/articles/32e113f3b841b8749c6f7c3e6bc0c1bcec589625?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T22:02:18+00:00",
+      "ts": 1777586538
+    },
+    {
+      "title": "2026年4月の暗号資産ハック件数が過去最多に。管理権限侵害やクロスチェーン問題も顕在化(あたらしい経済)",
+      "link": "https://news.yahoo.co.jp/articles/143129a3de442df70268a4f622ab0d8ebd538f82?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T22:00:30+00:00",
+      "ts": 1777586430
+    },
+    {
+      "title": "純国産フォーミュラカー『MEF』がふるさと納税返礼品に、栃木・鹿沼市が受付開始…寄附額は3142万9000円(レスポンス)",
+      "link": "https://news.yahoo.co.jp/articles/80d1a9534902116734b3d055ac320a4906538fdb?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T22:00:05+00:00",
+      "ts": 1777586405
+    },
+    {
+      "title": "Apple CEO Tim Cook warns of extended memory crunch. 'We'll look at a range of options'",
+      "link": "https://www.cnbc.com/2026/05/01/apple-ceo-warns-of-memory-crunch-well-look-at-a-range-of-options.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T22:00:01+00:00",
+      "ts": 1777586401
+    },
+    {
+      "title": "「車両込み200万円で製作可能!?」400馬力＋5速MTのクラウンは“本気の大人仕様”だ！(MotorFan)",
+      "link": "https://news.yahoo.co.jp/articles/a718234f85f0c49d9ac24b8f52dc960db7ad9596?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T22:00:00+00:00",
+      "ts": 1777586400
+    },
+    {
+      "title": "「友人限定だから大丈夫」は危険…BeRealで相次ぐ社内情報漏えい、企業と従業員の責任は？(弁護士ドットコムニュース)",
+      "link": "https://news.yahoo.co.jp/articles/5829fdf6d945f3131b4c28919d32e69543e25cf3?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T22:00:00+00:00",
+      "ts": 1777586400
+    },
+    {
+      "title": "宮﨑駿イメージボード全集「耳をすませば　On Your Mark」6月発売(AV Watch)",
+      "link": "https://news.yahoo.co.jp/articles/1b6bf6242ae69e49a76cf038603f11e7255772c6?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T22:00:00+00:00",
+      "ts": 1777586400
+    },
+    {
+      "title": "【朝食はビュッフェよりカフェ飯が人気!?】那覇市内のホテルで楽しむ、おしゃれな朝食プレート(WWDJAPAN.com)",
+      "link": "https://news.yahoo.co.jp/articles/7465e6698233451cfadc04c93d8d882b51e49652?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T22:00:00+00:00",
+      "ts": 1777586400
+    },
+    {
+      "title": "【絶対言ってはいけない】後輩への助言ワースト1は「夢を追いかけろ」。その2大理由とは？ - THE ALGEBRA OF WEALTH 一生「お金」を吸い寄せる 富の方程式",
+      "link": "https://diamond.jp/articles/-/382002",
+      "source": "Diamond Online",
+      "published": "2026-04-30T22:00:00+00:00",
+      "ts": 1777586400
+    },
+    {
+      "title": "Japan Airlines begins humanoid robot trials at Tokyo's Haneda airport as labor shortages bite",
+      "link": "https://www.cnbc.com/2026/05/01/japan-airlines-humanoid-robots-haneda-labor-shortage.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T21:58:26+00:00",
+      "ts": 1777586306
+    },
+    {
+      "title": "ZOZOの26年3月期決算はGMVが8.4％増の6660億円　習志野に200億円を投じた最新の自動物流倉庫も(WWDJAPAN.com)",
+      "link": "https://news.yahoo.co.jp/articles/36ad32ff4c7d5509775507d4049f779ce9316fcc?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T21:55:00+00:00",
+      "ts": 1777586100
+    },
+    {
+      "title": "本当に賢い人が自然にやっている「頭がよくなる習慣」ベスト1 - 筋肉が全て",
+      "link": "https://diamond.jp/articles/-/383711",
+      "source": "Diamond Online",
+      "published": "2026-04-30T21:55:00+00:00",
+      "ts": 1777586100
+    },
+    {
+      "title": "米国GDP2.0％増、堅調維持　AIけん引もインフレで消費に影(共同通信)",
+      "link": "https://news.yahoo.co.jp/articles/876befbbe65a090dd104fdf0b9d0410d37a1f26d?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T21:53:35+00:00",
+      "ts": 1777586015
+    },
+    {
+      "title": "Australia and Japan markets climb, looking past Iran war escalation fears",
+      "link": "https://www.cnbc.com/2026/05/01/asia-markets-today-asx-200-nikkei-225-labor-day-live-updates.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T21:53:19+00:00",
+      "ts": 1777585999
+    },
+    {
+      "title": "MPS raises enterprise data growth floor to ~85% while targeting $6B capacity",
+      "link": "https://seekingalpha.com/news/4583623-mps-raises-enterprise-data-growth-floor-to-85-percent-while-targeting-6b-capacity?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-04-30T21:52:36+00:00",
+      "ts": 1777585956
+    },
+    {
+      "title": "Sumitomo to exit Madagascar nickel project; shares hit record high",
+      "link": "https://www.investing.com/news/stock-market-news/sumitomo-to-exit-madagascar-nickel-project-shares-hit-record-high-4651978",
+      "source": "Investing.com",
+      "published": "2026-04-30T21:50:17+00:00",
+      "ts": 1777585817
+    },
+    {
+      "title": "みずほ銀 2日夜〜3日夕方ATM不可",
+      "link": "https://news.yahoo.co.jp/pickup/6578364?source=rss",
+      "source": "Yahoo!ファイナンス トピックス",
+      "published": "2026-04-30T21:50:13+00:00",
+      "ts": 1777585813
+    },
+    {
+      "title": "「まさか…」春のだるさが抜けない本当の理由！ 睡眠をこわす「見えない黒幕」の正体 - とにかくぐっすり眠りたい",
+      "link": "https://diamond.jp/articles/-/384956",
+      "source": "Diamond Online",
+      "published": "2026-04-30T21:50:00+00:00",
+      "ts": 1777585800
+    },
+    {
+      "title": "JR East shares surge to 1-1/2 mth high on strong earnings, outlook",
+      "link": "https://www.investing.com/news/stock-market-news/jr-east-shares-surge-to-112-mth-high-on-strong-earnings-outlook-4651976",
+      "source": "Investing.com",
+      "published": "2026-04-30T21:49:49+00:00",
+      "ts": 1777585789
+    },
+    {
+      "title": "サステナ経営塾2025: [サステナビリティ経営時代のESG情報開示とアンケート対策] 株式会社オルタナ オルタナ総研 室井孝之フェロー 講義(オルタナ)",
+      "link": "https://news.yahoo.co.jp/articles/20a0b336899fdbcca9bd0212a6c6b877f99fdaa7?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T21:46:13+00:00",
+      "ts": 1777585573
+    },
+    {
+      "title": "NHK、井上陽水＆安全地帯の神宮球場コンサートを初4K放送。6日22時(AV Watch)",
+      "link": "https://news.yahoo.co.jp/articles/948899f80995f25556528b2539cfcec2b01eeaef?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T21:45:00+00:00",
+      "ts": 1777585500
+    },
+    {
+      "title": "【脳の専門医が教える】まさか脳がサビるとは…認知症を招く慢性炎症の怖い連鎖 - 脳の専門医が教える 100歳までボケない脳　「ミクログリア」が味方する６つの習慣術",
+      "link": "https://diamond.jp/articles/-/385366",
+      "source": "Diamond Online",
+      "published": "2026-04-30T21:45:00+00:00",
+      "ts": 1777585500
+    },
+    {
+      "title": "東証反発、終値は228円高　米国株上昇を好感、買い注文優勢(共同通信)",
+      "link": "https://news.yahoo.co.jp/articles/c5cc8e6a8356531288414e96ecf2a3aa73061ca8?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T21:44:15+00:00",
+      "ts": 1777585455
+    },
+    {
+      "title": "「提携で顧客基盤拡大」と関西みらい銀社長(共同通信)",
+      "link": "https://news.yahoo.co.jp/articles/f6766ac10bbba60c6d8d95acba4daa993f1f1b17?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T21:43:16+00:00",
+      "ts": 1777585396
+    },
+    {
+      "title": "「プラスの未来を描く」とJR西社長(共同通信)",
+      "link": "https://news.yahoo.co.jp/articles/c38a0438e57affb790ee7f834ed6fcb00b61c358?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T21:42:49+00:00",
+      "ts": 1777585369
+    },
+    {
+      "title": "Jefferies cuts MGM to Hold on leased portfolio, growth concerns",
+      "link": "https://www.investing.com/news/stock-market-news/jefferies-cuts-mgm-to-hold-on-leased-portfolio-growth-concerns-4651960",
+      "source": "Investing.com",
+      "published": "2026-04-30T21:42:44+00:00",
+      "ts": 1777585364
+    },
+    {
+      "title": "【自分らしさ＝ラスボス!?】「自分らしさ」を追いかけるほど成長がパタと止まるショッキングなワケ - 「悩まない人」の考え方",
+      "link": "https://diamond.jp/articles/-/385809",
+      "source": "Diamond Online",
+      "published": "2026-04-30T21:40:00+00:00",
+      "ts": 1777585200
+    },
+    {
+      "title": "「頭のいい子どもたち」が夢中になっている“考える力がつく問題”とは？ - 頭のいい人だけが解ける論理的思考問題",
+      "link": "https://diamond.jp/articles/-/387468",
+      "source": "Diamond Online",
+      "published": "2026-04-30T21:35:00+00:00",
+      "ts": 1777584900
+    },
+    {
+      "title": "東証終値228円高(共同通信)",
+      "link": "https://news.yahoo.co.jp/articles/644f92877967dad040bfe340476bbc93ae951ba9?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T21:34:15+00:00",
+      "ts": 1777584855
+    },
+    {
+      "title": "Australia stocks higher at close of trade; S&P/ASX 200 up 0.74%",
+      "link": "https://www.investing.com/news/stock-market-news/australia-stocks-higher-at-close-of-trade-spasx-200-up-074-4651948",
+      "source": "Investing.com",
+      "published": "2026-04-30T21:30:04+00:00",
+      "ts": 1777584604
+    },
+    {
+      "title": "トヨタが新たな「本気の運転教室」を大幅刷新！ 「えっ…こんなに運転変わるの!?」プロ直伝で“限界走行”と“クルマを操る”感覚を学べる！ 日頃の運転にも役立つ新「GRドライビングエクスペリエンス」とは？(くるまのニュース)",
+      "link": "https://news.yahoo.co.jp/articles/ef07b930d2ab6b0a6aefb36d807b0123addc9eed?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T21:30:00+00:00",
+      "ts": 1777584600
+    },
+    {
+      "title": "なぜ夜中に書いたラブレターは、朝読むと死ぬほど恥ずかしいのか？  - 逆算時間術",
+      "link": "https://diamond.jp/articles/-/387904",
+      "source": "Diamond Online",
+      "published": "2026-04-30T21:30:00+00:00",
+      "ts": 1777584600
+    },
+    {
+      "title": "Rotork reports mixed Q1 results, maintains 2026 outlook",
+      "link": "https://www.investing.com/news/stock-market-news/rotork-reports-mixed-q1-results-maintains-2026-outlook-93CH-4651937",
+      "source": "Investing.com",
+      "published": "2026-04-30T21:29:54+00:00",
+      "ts": 1777584594
+    },
+    {
+      "title": "Asian markets navigate record Australian inflation and surging Japan factory data",
+      "link": "https://seekingalpha.com/news/4583587-asian-markets-navigate-record-australian-inflation-and-surging-japan-factory-data?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "source": "Seeking Alpha",
+      "published": "2026-04-30T21:29:05+00:00",
+      "ts": 1777584545
+    },
+    {
+      "title": "ダ・ヴィンチは“究極のコンサル”だった？「モナ・リザ」の裏に隠された超実践的な営業術 - リーダーは世界史に学べ",
+      "link": "https://diamond.jp/articles/-/388458",
+      "source": "Diamond Online",
+      "published": "2026-04-30T21:25:00+00:00",
+      "ts": 1777584300
+    },
+    {
+      "title": "MJ Gleeson sees profits in line with forecasts despite softening demand",
+      "link": "https://www.investing.com/news/stock-market-news/mj-gleeson-sees-profits-in-line-with-forecasts-despite-softening-demand-93CH-4651933",
+      "source": "Investing.com",
+      "published": "2026-04-30T21:21:32+00:00",
+      "ts": 1777584092
+    },
+    {
+      "title": "ショット×ミラーがアンダーウェアを発売(GQ JAPAN)",
+      "link": "https://news.yahoo.co.jp/articles/0e5c01cc49ba4b696e0016752b1faeb428770261?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T21:20:02+00:00",
+      "ts": 1777584002
+    },
+    {
+      "title": "疲れてる人の意外な特徴ワースト1 ～この習慣、やってたら要注意～ - メンタル養生",
+      "link": "https://diamond.jp/articles/-/388521",
+      "source": "Diamond Online",
+      "published": "2026-04-30T21:20:00+00:00",
+      "ts": 1777584000
+    },
+    {
+      "title": "「脱炭素を進めるほどGHG排出量が減らない」という声相次ぐ: 「スコープ3」の算定手法に矛盾も(オルタナ)",
+      "link": "https://news.yahoo.co.jp/articles/d8ac4bc603c486a0a6b96ad8e0b16490b460dac2?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T21:15:09+00:00",
+      "ts": 1777583709
+    },
+    {
+      "title": "雨の日はとくに注意!?　自転車「青切符」　ダブル違反は即アウト「傘をさしながら」＋「一時不停止」(バイクのニュース)",
+      "link": "https://news.yahoo.co.jp/articles/01fa9139f0b1dbf8627578225573f0f0cf662ebf?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T21:15:00+00:00",
+      "ts": 1777583700
+    },
+    {
+      "title": "「用具にお金がかからずコスパがいい」子供の習い事で不動の1位「水泳」を習わせたい親たちの本音　学校のプール授業取りやめ増加でニーズはますます高まるか(マネーポストWEB)",
+      "link": "https://news.yahoo.co.jp/articles/3c48c1130fa71aac614b026d1360363826b9820f?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T21:15:00+00:00",
+      "ts": 1777583700
+    },
+    {
+      "title": "【実は差がつく】「育ちがいい人」の親が教えていた、たった1つの“意外すぎる”習慣 - まいにちがたのしくなるおやくそく できるかな？",
+      "link": "https://diamond.jp/articles/-/388751",
+      "source": "Diamond Online",
+      "published": "2026-04-30T21:15:00+00:00",
+      "ts": 1777583700
+    },
+    {
+      "title": "4月の「円安」倒産は4件、46カ月連続で発生 負債額は5カ月ぶりに10億円を下回る(東京商工リサーチ)",
+      "link": "https://news.yahoo.co.jp/articles/3ebd42c8a8b634b9e793a25ef84c11f5e8f7ad57?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T21:14:38+00:00",
+      "ts": 1777583678
+    },
+    {
+      "title": "国家備蓄第2弾放出始まる、20日分　政府、切れ目ない対応で供給安定図る(産経新聞)",
+      "link": "https://news.yahoo.co.jp/articles/4ebb20b42ea8e96ed99d7d950e7da88cf78d0f4b?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T21:13:26+00:00",
+      "ts": 1777583606
+    },
+    {
+      "title": "サッと羽織るだけでカワイイ！無印良品の「着痩せトップス」サラッと涼しくて、二の腕カバーもばっちり！(ダイヤモンド・オンライン)",
+      "link": "https://news.yahoo.co.jp/articles/d539dbd71fbccb2e36d881167e4f87ba11e22027?source=rss",
+      "source": "Yahoo!ファイナンス 経済ニュース",
+      "published": "2026-04-30T21:12:25+00:00",
+      "ts": 1777583545
+    },
+    {
+      "title": "Citi cuts Adecco, Randstad, Hays and PageGroup amid staffing headwinds",
+      "link": "https://www.investing.com/news/stock-market-news/citi-cuts-adecco-randstad-hays-and-pagegroup-amid-staffing-headwinds-4651924",
+      "source": "Investing.com",
+      "published": "2026-04-30T21:11:09+00:00",
+      "ts": 1777583469
+    },
+    {
+      "title": "「めちゃくちゃうまいぞ」「汁まで完飲しました」丸亀製麺の“リピート続出メニュー”ご飯もついて満足感スゴい！「並盛りでもお腹いっぱい」 - 今日のリーマンめし!!",
+      "link": "https://diamond.jp/articles/-/388733",
+      "source": "Diamond Online",
+      "published": "2026-04-30T21:11:00+00:00",
+      "ts": 1777583460
+    },
+    {
+      "title": "【がんばれパンチ】子猿の「パンチくん」にハマる人が続出した、納得の理由とは？ - 人生は「気分」が10割──最高の一日が一生続く106の習慣",
+      "link": "https://diamond.jp/articles/-/389012",
+      "source": "Diamond Online",
+      "published": "2026-04-30T21:10:00+00:00",
+      "ts": 1777583400
+    },
+    {
+      "title": "Dubai chefs shrink menus as Iran war makes tomatillos, scallops harder to source",
+      "link": "https://www.investing.com/news/stock-market-news/dubai-chefs-shrink-menus-as-iran-war-makes-tomatillos-scallops-harder-to-source-4651918",
+      "source": "Investing.com",
+      "published": "2026-04-30T21:06:25+00:00",
+      "ts": 1777583185
+    },
+    {
+      "title": "「やたらと飲み会に参加する人」が人生後半に失うもの・ワースト1 - 人生は期待ゼロがうまくいく",
+      "link": "https://diamond.jp/articles/-/389065",
+      "source": "Diamond Online",
+      "published": "2026-04-30T21:05:00+00:00",
+      "ts": 1777583100
+    },
+    {
+      "title": "フォルクスワーゲン、GTI誕生50周年イベント「GTI FAN FEST 2026」開催へ",
+      "link": "https://zuuonline.com/archives/301741",
+      "source": "ZUU online",
+      "published": "2026-04-30T21:02:00+00:00",
+      "ts": 1777582920
+    },
+    {
+      "title": "【GWの渋滞が楽しみに！】車内で家族で盛り上がる！ 作文力もつく！ 「つなぎことばリレー」ゲーム - こども言語化大全",
+      "link": "https://diamond.jp/articles/-/389090",
+      "source": "Diamond Online",
+      "published": "2026-04-30T21:00:00+00:00",
+      "ts": 1777582800
+    },
+    {
+      "title": "「会社の名刺」にすがる人は要注意…退職した瞬間「誰とも連絡が取れなくなる人」の残念な特徴 - インド人は悩まない",
+      "link": "https://diamond.jp/articles/-/389115",
+      "source": "Diamond Online",
+      "published": "2026-04-30T20:55:00+00:00",
+      "ts": 1777582500
+    },
+    {
+      "title": "【マンガ】1万人を接客した美容部員が教える「眉毛があか抜ける」たった一つのコツ〈再配信〉 - メイクがなんとなく変なので友達の美容部員にコツを全部聞いてみた",
+      "link": "https://diamond.jp/articles/-/389159",
+      "source": "Diamond Online",
+      "published": "2026-04-30T20:50:00+00:00",
+      "ts": 1777582200
+    },
+    {
+      "title": "【話題沸騰】映画『炎上』の監督が実践する、型破りだけど誰でもできる企画法とは？ - あなたにしか作れないけれど、世界に通用してしまう 脚本の教室",
+      "link": "https://diamond.jp/articles/-/389178",
+      "source": "Diamond Online",
+      "published": "2026-04-30T20:45:00+00:00",
+      "ts": 1777581900
+    },
+    {
+      "title": "認知症を避けたいなら知っておきたい言葉「糖毒脳」とは？ - 糖毒脳",
+      "link": "https://diamond.jp/articles/-/389184",
+      "source": "Diamond Online",
+      "published": "2026-04-30T20:40:00+00:00",
+      "ts": 1777581600
+    },
+    {
+      "title": "【信長でも家康でもない？】日本史上「本当にすごい人物」ベスト3 - 東大教授がおしえる 超！やばい日本史",
+      "link": "https://diamond.jp/articles/-/389194",
+      "source": "Diamond Online",
+      "published": "2026-04-30T20:35:00+00:00",
+      "ts": 1777581300
+    },
+    {
+      "title": "「つまらない人生を送る人」が休暇中にやってしまうこと・ワースト1 - 人生は気づかぬうちにすぎるから。「自分第一」で生きるための時間術",
+      "link": "https://diamond.jp/articles/-/389204",
+      "source": "Diamond Online",
+      "published": "2026-04-30T20:30:00+00:00",
+      "ts": 1777581000
+    },
+    {
+      "title": "【実は穴場！】東京で「ローカルガストロノミー」を味わえる名店とは？ - 日本人の9割は知らない 世界の富裕層は日本で何を食べているのか？",
+      "link": "https://diamond.jp/articles/-/389221",
+      "source": "Diamond Online",
+      "published": "2026-04-30T20:25:00+00:00",
+      "ts": 1777580700
+    },
+    {
+      "title": "呆れるほど「考えが浅い人」の特徴・ワースト1〈再配信〉 - 小学生でもできる言語化",
+      "link": "https://diamond.jp/articles/-/388943",
+      "source": "Diamond Online",
+      "published": "2026-04-30T20:20:00+00:00",
+      "ts": 1777580400
+    },
+    {
+      "title": "サッと羽織るだけでカワイイ！無印良品の「着痩せトップス」サラッと涼しくて、二の腕カバーもばっちり！ - 明日なに着てく？",
+      "link": "https://diamond.jp/articles/-/388356",
+      "source": "Diamond Online",
+      "published": "2026-04-30T20:11:00+00:00",
+      "ts": 1777579860
+    },
+    {
+      "title": "間接材購買のDXで労働生産性を向上させる。一貫堂が目指す「ジャパン・アズ・ナンバーワン」の再来",
+      "link": "https://zuuonline.com/archives/301609",
+      "source": "ZUU online",
+      "published": "2026-04-30T20:00:00+00:00",
+      "ts": 1777579200
+    },
+    {
+      "title": "アンダースロー：会田が自由で開かれたインド太平洋について解説した動画です",
+      "link": "https://zuuonline.com/archives/301749",
+      "source": "ZUU online",
+      "published": "2026-04-30T20:00:00+00:00",
+      "ts": 1777579200
+    },
+    {
+      "title": "主力事業を二度もグーグルに売却した過去のあるHTCが､なぜ今\"AIスマートグラス\"に懸けるのか | ビジネス | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/942560?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T20:00:00+00:00",
+      "ts": 1777579200
+    },
+    {
+      "title": "スーチー氏弁護団、3日に面会　軟禁措置受け＝関係者",
+      "link": "https://jp.reuters.com/economy/IZI72XAXVBM2RDZ625ZYAVTX5Q-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T19:56:13+00:00",
+      "ts": 1777578973
+    },
+    {
+      "title": "ミツカン 納豆を最大20%値上げへ",
+      "link": "https://news.yahoo.co.jp/pickup/6578355?source=rss",
+      "source": "Yahoo!ファイナンス トピックス",
+      "published": "2026-04-30T19:44:21+00:00",
+      "ts": 1777578261
+    },
+    {
+      "title": "ただのパフォーマンスか､政局の新たな火種か？ 再審制度見直しでブチ切れ｢稲田の乱｣が巻き起こす\"女の戦い\"の延焼範囲 | 政治・経済・投資 | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/943292?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T19:30:00+00:00",
+      "ts": 1777577400
+    },
+    {
+      "title": "China’s EV price war turns into AI arms race beyond cheaper cars",
+      "link": "https://www.cnbc.com/2026/05/01/china-ev-ai-features-price-war-bytedance-alibaba-doubao-volcano-engine.html",
+      "source": "CNBC Markets",
+      "published": "2026-04-30T19:19:25+00:00",
+      "ts": 1777576765
+    },
+    {
+      "title": "焦点：イラン経済、米海上封鎖でも当面屈せず　トランプ氏は期待外れか",
+      "link": "https://jp.reuters.com/economy/inflation/JH4RSJT7BFPZHJC4EM4JKDK7FY-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T19:18:35+00:00",
+      "ts": 1777576715
+    },
+    {
+      "title": "The S&P 500’s newest member is this under-the-radar software stock",
+      "link": "https://www.marketwatch.com/story/the-s-p-500s-newest-member-is-this-under-the-radar-software-stock-b828bd5e?mod=mw_rss_topstories",
+      "source": "MarketWatch Top Stories",
+      "published": "2026-04-30T19:02:00+00:00",
+      "ts": 1777575720
+    },
+    {
+      "title": "松本大氏がマネックスからの転身で始めた｢やりたいこと｣とは？――読解力低下が叫ばれる現代に問う\"ルビ\"の価値 | キャリア・教育 | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/940682?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T19:00:00+00:00",
+      "ts": 1777575600
+    },
+    {
+      "title": "大手アパレル「百貨店離れ」進む",
+      "link": "https://news.yahoo.co.jp/pickup/6578348?source=rss",
+      "source": "Yahoo!ファイナンス トピックス",
+      "published": "2026-04-30T18:50:56+00:00",
+      "ts": 1777575056
+    },
+    {
+      "title": "Oil rises as White House says Iran ceasefire halts 60-day war deadline",
+      "link": "https://www.cnbc.com/2026/05/01/oil-prices-today-brent-wti-us-iran-war-trump-war-powers-deadline.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T18:48:31+00:00",
+      "ts": 1777574911
+    },
+    {
+      "title": "ホンダ苦境 Nシリーズのジレンマ",
+      "link": "https://news.yahoo.co.jp/pickup/6578346?source=rss",
+      "source": "Yahoo!ファイナンス トピックス",
+      "published": "2026-04-30T18:47:26+00:00",
+      "ts": 1777574846
+    },
+    {
+      "title": "Nothingがスマートフォンの枠を超えて提案する｢おしゃれで遊び心のある毎日｣の実像とは | ビジネス | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/942558?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T18:30:00+00:00",
+      "ts": 1777573800
+    },
+    {
+      "title": "介入観測 コメントしないと財務官",
+      "link": "https://news.yahoo.co.jp/pickup/6578341?source=rss",
+      "source": "Yahoo!ファイナンス トピックス",
+      "published": "2026-04-30T18:16:24+00:00",
+      "ts": 1777572984
+    },
+    {
+      "title": "為替介入 恩恵を受けるのは誰か",
+      "link": "https://news.yahoo.co.jp/pickup/6578342?source=rss",
+      "source": "Yahoo!ファイナンス トピックス",
+      "published": "2026-04-30T18:15:01+00:00",
+      "ts": 1777572901
+    },
+    {
+      "title": "丸井グループ 不妊治療休暇を新設",
+      "link": "https://news.yahoo.co.jp/pickup/6578340?source=rss",
+      "source": "Yahoo!ファイナンス トピックス",
+      "published": "2026-04-30T18:08:34+00:00",
+      "ts": 1777572514
+    },
+    {
+      "title": "ＡＩのメガトレンド継続は確実＝台湾半導体設計最大手ＣＥＯ",
+      "link": "https://jp.reuters.com/markets/world-indices/FXFJKA62INJSPMUCYI3KR45ZCE-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T18:07:01+00:00",
+      "ts": 1777572421
+    },
+    {
+      "title": "焦点：有罪判決受けた元ハーバード大科学者、脳への電子機器埋め込み研究を中国で再開",
+      "link": "https://jp.reuters.com/world/us/JZXFGJ6BUNMKFLIQU7CZYITPLA-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T18:06:54+00:00",
+      "ts": 1777572414
+    },
+    {
+      "title": "「グッチ」がaespaのNINGNINGをグローバル・アンバサダーに起用　XGのCOCONAに続きアンバサダー戦略を加速",
+      "link": "https://zuuonline.com/archives/301737",
+      "source": "ZUU online",
+      "published": "2026-04-30T18:02:00+00:00",
+      "ts": 1777572120
+    },
+    {
+      "title": "貯めるだけで終わらない、資産を使える人になる「出口戦略」",
+      "link": "https://zuuonline.com/archives/301535",
+      "source": "ZUU online",
+      "published": "2026-04-30T18:00:00+00:00",
+      "ts": 1777572000
+    },
+    {
+      "title": "｢10秒で決めていいこと､1週間かけること｣ 仕事のデキる人が密かに使い分ける\"判断基準\" | キャリア・教育 | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/941055?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T18:00:00+00:00",
+      "ts": 1777572000
+    },
+    {
+      "title": "値上がり・優待両取りで再注目の株や中国・インドネシアでも高シェアの株をオススメ！ - ホットニュース from ZAi",
+      "link": "https://diamond.jp/articles/-/389244",
+      "source": "Diamond Online",
+      "published": "2026-04-30T18:00:00+00:00",
+      "ts": 1777572000
+    },
+    {
+      "title": "米軍将校がドイツ駐留の利点強調、トランプ氏の削減発言には触れず",
+      "link": "https://jp.reuters.com/world/ukraine/TYY4TPNQBBJFZD4X3D4Q7AQ5IY-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T17:54:06+00:00",
+      "ts": 1777571646
+    },
+    {
+      "title": "レッドチップ企業に残る米上場の道、中国当局がＤＳＣの申請許可",
+      "link": "https://jp.reuters.com/markets/japan/7ASLKX3JTNKM5NUTUBICFPEZTE-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T17:52:34+00:00",
+      "ts": 1777571554
+    },
+    {
+      "title": "住宅街にデータセンター 憤りの声",
+      "link": "https://news.yahoo.co.jp/pickup/6578335?source=rss",
+      "source": "Yahoo!ファイナンス トピックス",
+      "published": "2026-04-30T17:42:37+00:00",
+      "ts": 1777570957
+    },
+    {
+      "title": "警護隊員負傷は「味方の誤射ではない」、夕食会発砲事件でトランプ氏ら",
+      "link": "https://jp.reuters.com/world/us/CUSIZSFBUNMMRHDOVCO7DYV3EU-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T17:42:02+00:00",
+      "ts": 1777570922
+    },
+    {
+      "title": "丸紅、自社株買いの上限600億円に拡大　時価総額「世界100位」目標に",
+      "link": "https://jp.reuters.com/markets/global-markets/FAZUOHHYVFPXTCO6KZSS5GQQHI-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T17:32:09+00:00",
+      "ts": 1777570329
+    },
+    {
+      "title": "約2kmの廃止された高速道路を歩いてみたら…｢KK線ウォークイベント｣で見た東京の道路の新しい使い方 | ライフ | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/942975?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T17:30:00+00:00",
+      "ts": 1777570200
+    },
+    {
+      "title": "イラン戦争で世界の再生エネ移行が加速＝ＵＮＦＣＣＣトップ",
+      "link": "https://jp.reuters.com/markets/commodities/7VPJZS7MN5JEJOENPVADNTTKRE-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T17:24:59+00:00",
+      "ts": 1777569899
+    },
+    {
+      "title": "丸紅、今期純利益は6.6％増予想　銅など市況改善で最高益見込む",
+      "link": "https://jp.reuters.com/markets/world-indices/OLUNI2E2KVKYNDD37ZDSQNZ35I-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T17:18:34+00:00",
+      "ts": 1777569514
+    },
+    {
+      "title": "原油先物は反発、イラン紛争の終結見通せず",
+      "link": "https://jp.reuters.com/markets/commodities/LTQZ7RY72RLOZOOKSZMGXK7X7U-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T17:11:11+00:00",
+      "ts": 1777569071
+    },
+    {
+      "title": "フォルクスワーゲン「I♡VWフォトキャンペーン2026」開催｜GTI50周年記念でファン投稿募集、イベント招待も",
+      "link": "https://zuuonline.com/archives/301740",
+      "source": "ZUU online",
+      "published": "2026-04-30T17:02:00+00:00",
+      "ts": 1777568520
+    },
+    {
+      "title": "就職氷河期世代は子どもも貧困？｢実家に頼れない若者｣が追い込まれる\"貧困連鎖\"の深刻さ | キャリア・教育 | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/942912?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T17:00:00+00:00",
+      "ts": 1777568400
+    },
+    {
+      "title": "米国の国連未払い分担金は「交渉の対象外」、事務総長が強調",
+      "link": "https://jp.reuters.com/world/us/ACBWO7XC45LC5ES5QZKOVUAZVI-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T16:59:31+00:00",
+      "ts": 1777568371
+    },
+    {
+      "title": "中国ファーウェイ、今年のＡＩ半導体売上高60％増見込む＝ＦＴ",
+      "link": "https://jp.reuters.com/markets/world-indices/OE7ZPLXOIJJTJOSP4YKPGYEC5Q-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T16:57:07+00:00",
+      "ts": 1777568227
+    },
+    {
+      "title": "ＪＰＸ、ニデックに上場契約違約金9120万円を徴求",
+      "link": "https://jp.reuters.com/world/japan/YH6KLFD2KZPPPB36LTPLRNSHWI-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T16:41:18+00:00",
+      "ts": 1777567278
+    },
+    {
+      "title": "コラム：中国クリーンエネ輸出が過去最高、イラン戦争で需要急増",
+      "link": "https://jp.reuters.com/opinion/2OTPUFDLXVMOLFHXDV37HUDU5Y-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T16:32:08+00:00",
+      "ts": 1777566728
+    },
+    {
+      "title": "FX/為替「ドル/円今日の予想」 外為どっとコム トゥデイ 2026年5月1日号",
+      "link": "https://zuuonline.com/archives/301742",
+      "source": "ZUU online",
+      "published": "2026-04-30T16:32:00+00:00",
+      "ts": 1777566720
+    },
+    {
+      "title": "アップル15年ぶりCEO交代の真意､エンジニア主導で変わるものと変わらない成長モデルの核心 | ビジネス | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/942555?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T16:30:00+00:00",
+      "ts": 1777566600
+    },
+    {
+      "title": "ＦＤＡ、肥満薬の大量調剤規制を提案　ノボとリリーの純正薬保護へ",
+      "link": "https://jp.reuters.com/markets/japan/QECII63L6JIT3HDHPMECOGE5GM-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T16:27:36+00:00",
+      "ts": 1777566456
+    },
+    {
+      "title": "ＥＵが合併規制の見直し提案、欧州の「チャンピオン企業」に期待",
+      "link": "https://jp.reuters.com/world/europe/QMOM3RAEPVOLVMFBDWOLWN4KQE-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T16:24:37+00:00",
+      "ts": 1777566277
+    },
+    {
+      "title": "Video shows Cole Allen casing hotel, storming checkpoint in alleged Trump assassination attempt",
+      "link": "https://www.cnbc.com/2026/04/30/cole-allen-video-trump-attempted-assassination-pirro.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T16:22:10+00:00",
+      "ts": 1777566130
+    },
+    {
+      "title": "China’s self-driving truck leaders say AI breakthroughs won’t accelerate rollout — here’s why",
+      "link": "https://www.cnbc.com/2026/05/01/chinas-self-driving-truck-leaders-say-ai-breakthroughs-wont-accelerate-rollout-heres-why.html",
+      "source": "CNBC Markets",
+      "published": "2026-04-30T16:10:28+00:00",
+      "ts": 1777565428
+    },
+    {
+      "title": "アンダースロー：不透明な中東情勢　政府と日銀の連携が重要に",
+      "link": "https://zuuonline.com/archives/301743",
+      "source": "ZUU online",
+      "published": "2026-04-30T16:00:00+00:00",
+      "ts": 1777564800
+    },
+    {
+      "title": "九州中から人が集まる｢いつも行列｣なドライブイン…｢超新鮮な鳥｣を使った\"爆売れソウルフード\"の正体 | ライフ | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/942507?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T16:00:00+00:00",
+      "ts": 1777564800
+    },
+    {
+      "title": "イーライリリー、26年利益・売上見通し上方修正　肥満薬の需要急増",
+      "link": "https://jp.reuters.com/markets/world-indices/PU4K6QUH3FIBXKSMDSEJSEM77Y-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T15:57:43+00:00",
+      "ts": 1777564663
+    },
+    {
+      "title": "韓国4月輸出は48％増、11カ月連続プラス　半導体好調で",
+      "link": "https://jp.reuters.com/markets/japan/UGQBFCMAHBIM5EFFCF4FEWCJQA-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T15:54:39+00:00",
+      "ts": 1777564479
+    },
+    {
+      "title": "アックマン氏、ファンド上場初日18％安巡り個人投資家を非難",
+      "link": "https://jp.reuters.com/markets/japan/RHGU3SFX2FP5NEKMCGH6JOV5MI-2026-05-01/",
+      "source": "Reuters Japan",
+      "published": "2026-04-30T15:47:07+00:00",
+      "ts": 1777564027
+    },
+    {
+      "title": "平成のエモい文化に再注目…《ポケベル》が令和に愛されるワケ　｢14106｣｢999｣｢724106｣｢49106841｣などが懐かしい | ライフ | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/942845?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T15:30:00+00:00",
+      "ts": 1777563000
+    },
+    {
+      "title": "The memory trade is faltering as Western Digital’s stock slides in the face of earnings beat",
+      "link": "https://www.marketwatch.com/story/the-memory-trade-is-faltering-as-western-digitals-stock-slides-in-the-face-of-earnings-beat-9b99694e?mod=mw_rss_topstories",
+      "source": "MarketWatch Top Stories",
+      "published": "2026-04-30T15:25:00+00:00",
+      "ts": 1777562700
+    },
+    {
+      "title": "Here’s what’s worth streaming in May 2026 on Netflix, Hulu, HBO Max and more",
+      "link": "https://www.marketwatch.com/story/heres-whats-worth-streaming-in-may-2026-on-netflix-hulu-hbo-max-and-more-a891be59?mod=mw_rss_topstories",
+      "source": "MarketWatch Top Stories",
+      "published": "2026-04-30T15:23:00+00:00",
+      "ts": 1777562580
+    },
+    {
+      "title": "“センスがある人”はここが違う、相手の半歩先を出す",
+      "link": "https://zuuonline.com/archives/301484",
+      "source": "ZUU online",
+      "published": "2026-04-30T15:00:00+00:00",
+      "ts": 1777561200
+    },
+    {
+      "title": "メタ株8.6%下げ､半年ぶりの大幅安を記録…ザッカーバーグCEOの強気なAI戦略と巨額の資金調達が期待と不安を生む | 政治・経済・投資 | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/943255?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T15:00:00+00:00",
+      "ts": 1777561200
+    },
+    {
+      "title": "金融危機の火種か？ ｢プライベートクレジット｣問題は明らかに焦げ臭い…旗艦企業が資金引き出し停止の事態に | 政治・経済・投資 | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/943106?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T15:00:00+00:00",
+      "ts": 1777561200
+    },
+    {
+      "title": "若く見える人は髪が違う—\"奇跡の69歳\"天野佳代子さんが教える老けない髪の整え方《60代はまだまだキレイになれる》 | ライフ | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/941859?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T15:00:00+00:00",
+      "ts": 1777561200
+    },
+    {
+      "title": "Apple delivers a nearly perfect quarter, with a CEO change and an AI update ahead",
+      "link": "https://www.cnbc.com/2026/04/30/apple-delivers-a-nearly-perfect-quarter-with-a-ceo-change-and-an-ai-update-ahead.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T14:43:06+00:00",
+      "ts": 1777560186
+    },
+    {
+      "title": "アップルの売上高見通し､市場予想を上回る－主軸のiPhoneとMacが部品不足という業界の逆風を乗り越えて力強い成長 | 政治・経済・投資 | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/943249?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T14:40:00+00:00",
+      "ts": 1777560000
+    },
+    {
+      "title": "｢ボルボ｣購入者データ分析で明らかになった｢ベンツ｣や｢BMW｣とは明らかに異なる独特の価値基準 | ビジネス | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/942062?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T14:30:00+00:00",
+      "ts": 1777559400
+    },
+    {
+      "title": "Alphabet hits a milestone as it closes in on Nvidia",
+      "link": "https://www.marketwatch.com/story/alphabet-hits-a-milestone-as-it-closes-in-on-nvidia-00622b31?mod=mw_rss_topstories",
+      "source": "MarketWatch Top Stories",
+      "published": "2026-04-30T14:08:00+00:00",
+      "ts": 1777558080
+    },
+    {
+      "title": "Apple revenue guidance tops estimates on booming iPhone, Mac demand",
+      "link": "https://www.cnbc.com/2026/04/30/apple-aapl-q2-2026-earnings-report.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T14:06:23+00:00",
+      "ts": 1777557983
+    },
+    {
+      "title": "｢国策｣をバネに株価2倍超､自衛隊輸送艦も手がける内海造船の強み…中国･韓国勢にはオーダーメイドで対抗 | ビジネス | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/942427?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T14:00:00+00:00",
+      "ts": 1777557600
+    },
+    {
+      "title": "【ピークは60代】しびれ､腫れ､変形…中高年女性を悩ます《手指の不調》が起きる意外な要因と､正しい向き合い方 | ライフ | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/942012?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T14:00:00+00:00",
+      "ts": 1777557600
+    },
+    {
+      "title": "\"元･平成女児\"が赤面悶絶…私が\"性に目覚めた\"小学校時代の｢黒歴史｣　漫画｢平成生まれの母､令和女児の性教育に挑む｣ | ライフ | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/941264?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T14:00:00+00:00",
+      "ts": 1777557600
+    },
+    {
+      "title": "Reddit reports 69% jump in revenue, topping analyst estimates",
+      "link": "https://www.cnbc.com/2026/04/30/reddit-rddt-q1-2026-earnings-report.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T13:57:54+00:00",
+      "ts": 1777557474
+    },
+    {
+      "title": "キンプリ･永瀬廉の｢結婚式で黒ネクタイ｣に､\"マナー違反\"を指摘する声が殺到…《\"マナー警察\"たちの異常な執着》の正体 | ライフ | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/943182?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T13:45:00+00:00",
+      "ts": 1777556700
+    },
+    {
+      "title": "Veeva Systems to join S&P 500 index, replacing Coterra Energy",
+      "link": "https://www.cnbc.com/2026/04/30/veeva-systems-will-join-sp-500-index-replacing-coterra-energy.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T13:40:57+00:00",
+      "ts": 1777556457
+    },
+    {
+      "title": "｢『リブート』も『細木数子』も凄すぎ…｣中卒で単身上京した戸田恵梨香が｢88年生まれ女優最強世代｣のトップに立つワケ | ライフ | 東洋経済オンライン",
+      "link": "https://toyokeizai.net/articles/-/943177?utm_source=rss&utm_medium=http&utm_campaign=link_back",
+      "source": "東洋経済 マーケット",
+      "published": "2026-04-30T13:30:00+00:00",
+      "ts": 1777555800
+    },
+    {
+      "title": "Saving for retirement when you make less than $35,000 won’t be much easier with Trump’s new executive order",
+      "link": "https://www.marketwatch.com/story/saving-for-retirement-when-you-make-less-than-35-000-wont-be-much-easier-with-trumps-new-executive-order-dbe72ddf?mod=mw_rss_topstories",
+      "source": "MarketWatch Top Stories",
+      "published": "2026-04-30T13:22:00+00:00",
+      "ts": 1777555320
+    },
+    {
+      "title": "SpaceX may face an easier path to S&P 500 entry if these newly proposed rules take hold",
+      "link": "https://www.marketwatch.com/story/spacex-may-face-an-easier-path-to-s-p-500-entry-if-these-newly-proposed-rules-take-hold-b3ba6bff?mod=mw_rss_topstories",
+      "source": "MarketWatch Top Stories",
+      "published": "2026-04-30T13:22:00+00:00",
+      "ts": 1777555320
+    },
+    {
+      "title": "Rivian renegotiates DOE loan down to $4.5 billion, adjusts capacity plans for Georgia plant",
+      "link": "https://www.cnbc.com/2026/04/30/rivian-renegotiates-doe-loan-adjusts-capacity-plans-for-georgia-plant.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T13:21:00+00:00",
+      "ts": 1777555260
+    },
+    {
+      "title": "Trump signs executive order expanding retirement account access for workers",
+      "link": "https://www.cnbc.com/2026/04/30/trump-executive-order-expanding-retirement-account-access.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T13:20:45+00:00",
+      "ts": 1777555245
+    },
+    {
+      "title": "Jim Cramer says the market’s biggest winners all have one thing in common",
+      "link": "https://www.cnbc.com/2026/04/30/jim-cramer-markets-biggest-winners.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T13:16:50+00:00",
+      "ts": 1777555010
+    },
+    {
+      "title": "‘The numbers don’t lie’: If I had invested my Social Security in the S&P 500 I’d have $4 million. Is the system broken?",
+      "link": "https://www.marketwatch.com/story/the-numbers-dont-lie-if-i-had-invested-my-social-security-in-the-s-p-500-id-have-4-million-is-the-system-broken-d41b1779?mod=mw_rss_topstories",
+      "source": "MarketWatch Top Stories",
+      "published": "2026-04-30T13:14:00+00:00",
+      "ts": 1777554840
+    },
+    {
+      "title": "Mortgage rates increase to 6.3% — but home buyers aren’t scared away",
+      "link": "https://www.marketwatch.com/story/mortgage-rates-increase-to-6-3-but-thats-not-stopping-home-buyers-8f24ecbb?mod=mw_rss_topstories",
+      "source": "MarketWatch Top Stories",
+      "published": "2026-04-30T13:01:00+00:00",
+      "ts": 1777554060
+    },
+    {
+      "title": "Gold posts its biggest 2-month drop ever. How its price could still double over the next 5 years.",
+      "link": "https://www.marketwatch.com/story/gold-posts-its-biggest-2-month-drop-ever-how-its-price-could-still-double-over-the-next-5-years-f9004621?mod=mw_rss_topstories",
+      "source": "MarketWatch Top Stories",
+      "published": "2026-04-30T12:56:00+00:00",
+      "ts": 1777553760
+    },
+    {
+      "title": "LIV Golf has lost its Saudi funding. Golfers who rejoin the PGA Tour may face financial fallout.",
+      "link": "https://www.marketwatch.com/story/liv-golf-has-lost-its-saudi-funding-golfers-who-rejoin-the-pga-tour-may-face-financial-fallout-9bae103a?mod=mw_rss_topstories",
+      "source": "MarketWatch Top Stories",
+      "published": "2026-04-30T12:43:00+00:00",
+      "ts": 1777552980
+    },
+    {
+      "title": "Trump says 'I don't think about' another assassination attempt",
+      "link": "https://www.cnbc.com/2026/04/30/trump-assassination-attempt.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T12:39:33+00:00",
+      "ts": 1777552773
+    },
+    {
+      "title": "U.S. senators ban themselves from prediction markets trading",
+      "link": "https://www.cnbc.com/2026/04/30/senate-prediction-markets-trading-ban-kalshi-polymarket.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T12:37:12+00:00",
+      "ts": 1777552632
+    },
+    {
+      "title": "FISA Section 702: Congress passes short-term surveillance program extension just before deadline",
+      "link": "https://www.cnbc.com/2026/04/30/fisa-section-702-congress-extension.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T12:09:18+00:00",
+      "ts": 1777550958
+    },
+    {
+      "title": "Inside Wealth: Markets are underpricing the risk of Middle East pullback in AI, says tech investor Jack Selby",
+      "link": "https://www.cnbc.com/2026/04/30/investor-jack-selby-markets-underpricing-middle-east-ai-pullback-risk.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T12:06:01+00:00",
+      "ts": 1777550761
+    },
+    {
+      "title": "Trump admin. faces critical 60-day Iran war deadline, but floats ceasefire loophole",
+      "link": "https://www.cnbc.com/2026/04/30/trump-iran-war-centcom-hormuz-congress.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T11:59:06+00:00",
+      "ts": 1777550346
+    },
+    {
+      "title": "Trump signs DHS funding bill, ending shutdown for most of agency, including TSA",
+      "link": "https://www.cnbc.com/2026/04/30/congress-dhs-tsa-funding.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T11:54:05+00:00",
+      "ts": 1777550045
+    },
+    {
+      "title": "Intel's stock more than doubles in April for best month in chipmaker's 55 years on Nasdaq",
+      "link": "https://www.cnbc.com/2026/04/30/intel-has-best-month-ever-after-years-of-losing-to-tsmc-and-nvidia.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T11:10:36+00:00",
+      "ts": 1777547436
+    },
+    {
+      "title": "Trump administration finalizes federal student loan caps—what it means for borrowers",
+      "link": "https://www.cnbc.com/2026/04/30/grad-school-loan-caps-final-rule.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T11:01:56+00:00",
+      "ts": 1777546916
+    },
+    {
+      "title": "Google cloud growth tops Microsoft and Amazon as all three beat estimates on AI demand",
+      "link": "https://www.cnbc.com/2026/04/30/google-microsoft-and-amazon-all-report-cloud-beats-in-earnings.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T11:00:59+00:00",
+      "ts": 1777546859
+    },
+    {
+      "title": "Blue Owl shares surge after private credit firm cites 10X gains from SpaceX",
+      "link": "https://www.cnbc.com/2026/04/30/blue-owl-shares-private-credit-spacex-gains.html",
+      "source": "CNBC Markets",
+      "published": "2026-04-30T10:36:55+00:00",
+      "ts": 1777545415
+    },
+    {
+      "title": "Inside the Fed: Powell vows he won't be a 'shadow chair,' but a Warsh clash will be tough to avoid",
+      "link": "https://www.cnbc.com/2026/04/30/inside-the-fed-powell-and-warsh-set-to-clash.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T10:25:06+00:00",
+      "ts": 1777544706
+    },
+    {
+      "title": "Kalshi users called it: Powell says he will stay on as Fed governor after chair term ends",
+      "link": "https://www.cnbc.com/2026/04/29/kalshi-bettors-prediction-powell-to-stay-as-fed-governor.html",
+      "source": "CNBC Markets",
+      "published": "2026-04-30T09:50:50+00:00",
+      "ts": 1777542650
+    },
+    {
+      "title": "Trump taps Nicole Saphier for surgeon general after pulling Casey Means nomination",
+      "link": "https://www.cnbc.com/2026/04/30/trump-taps-nicole-saphier-for-surgeon-general-after-pulling-casey-means.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T09:38:33+00:00",
+      "ts": 1777541913
+    },
+    {
+      "title": "AI boom: Big Tech capital expenditures now seen topping $1 trillion in 2027",
+      "link": "https://www.cnbc.com/2026/04/30/ai-boom-big-tech-capital-expenditures-now-seen-topping-1-trillion-in-2027-.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T09:26:43+00:00",
+      "ts": 1777541203
+    },
+    {
+      "title": "Apple execs to talk China and tariffs, but will avoid discussing foldable iPhone, per traders on Kalshi",
+      "link": "https://www.cnbc.com/2026/04/30/what-bettors-think-apple-will-talk-about-on-its-earnings-call.html",
+      "source": "CNBC Markets",
+      "published": "2026-04-30T08:56:28+00:00",
+      "ts": 1777539388
+    },
+    {
+      "title": "Apple's stock has gone nowhere for 6 months. Traders expect a wild ride Thursday night",
+      "link": "https://www.cnbc.com/2026/04/30/apples-stock-has-gone-nowhere-for-6-months-traders-expect-a-wild-ride-thursday-night.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T08:38:34+00:00",
+      "ts": 1777538314
+    },
+    {
+      "title": "House strips MAHA-hated pesticide provisions from farm bill",
+      "link": "https://www.cnbc.com/2026/04/30/congress-house-maha-pesticide-farm-bill-roundup-bayer-glyphosate.html",
+      "source": "CNBC Top News",
+      "published": "2026-04-30T08:29:01+00:00",
+      "ts": 1777537741
+    },
+    {
+      "title": "Jerome Powell says he will continue to serve as a Fed governor, calls Trump criticism 'unprecedented'",
+      "link": "https://www.cnbc.com/2026/04/29/jerome-powell-says-he-will-continue-to-serve-as-a-fed-governor-even-after-chairmanship-ends-.html",
+      "source": "CNBC Markets",
+      "published": "2026-04-30T05:36:04+00:00",
+      "ts": 1777527364
+    },
+    {
+      "title": "Here's why surging oil prices may not derail the consumer trade",
+      "link": "https://www.cnbc.com/2026/04/30/why-surging-oil-prices-may-not-derail-the-consumer-trade.html",
+      "source": "CNBC Markets",
+      "published": "2026-04-30T02:16:27+00:00",
+      "ts": 1777515387
+    },
+    {
+      "title": "日々是相場［夕刊］――  2026年4月30日（木）",
+      "link": "https://zuuonline.com/archives/301739",
+      "source": "ZUU online",
+      "published": "2026-04-30T01:30:00+00:00",
+      "ts": 1777512600
+    },
+    {
+      "title": "米ドル／円 ―― ｢実弾介入｣への距離感が縮まらない限り円高の反応は限定的だろう",
+      "link": "https://zuuonline.com/archives/301738",
+      "source": "ZUU online",
+      "published": "2026-04-30T01:00:00+00:00",
+      "ts": 1777510800
+    },
+    {
+      "title": "シトロエンの新世代フラッグシップモデルの新型C5エアクロスが日本デビュー",
+      "link": "https://zuuonline.com/archives/301664",
+      "source": "ZUU online",
+      "published": "2026-04-29T23:00:00+00:00",
+      "ts": 1777503600
+    },
+    {
+      "title": "多数派は安全じゃない、本を読まない人が利用されやすい理由",
+      "link": "https://zuuonline.com/archives/301681",
+      "source": "ZUU online",
+      "published": "2026-04-29T23:00:00+00:00",
+      "ts": 1777503600
+    },
+    {
+      "title": "バリュエーションと投資家心理から探る米国株式市場のピーク",
+      "link": "https://zuuonline.com/archives/301668",
+      "source": "ZUU online",
+      "published": "2026-04-29T21:00:00+00:00",
+      "ts": 1777496400
+    },
+    {
+      "title": "「売上高は同じ100億円でも今と昔で中身が違う」DPT・竹本社長が振り返る逆境を乗り越えた営業力",
+      "link": "https://zuuonline.com/archives/301597",
+      "source": "ZUU online",
+      "published": "2026-04-29T20:00:00+00:00",
+      "ts": 1777492800
+    },
+    {
+      "title": "プラダが5日続落、株価は年初から約2割下落　「SVT グローバル」はマイナス25.78％｜4月28日",
+      "link": "https://zuuonline.com/archives/301722",
+      "source": "ZUU online",
+      "published": "2026-04-29T18:02:00+00:00",
+      "ts": 1777485720
+    },
+    {
+      "title": "アディダスが8％の急伸も、ラグジュアリーは全銘柄が下落の総崩れ　「SVT グローバル」はマイナス49.51％｜4月29日",
+      "link": "https://zuuonline.com/archives/301726",
+      "source": "ZUU online",
+      "published": "2026-04-29T18:02:00+00:00",
+      "ts": 1777485720
+    },
+    {
+      "title": "配当が年4回もらえる、ご褒美設計で投資が続く米国高配当ETF",
+      "link": "https://zuuonline.com/archives/301534",
+      "source": "ZUU online",
+      "published": "2026-04-29T18:00:00+00:00",
+      "ts": 1777485600
+    },
+    {
+      "title": "FX/為替「ドル/円今日の予想」 外為どっとコム トゥデイ 2026年4月30日号",
+      "link": "https://zuuonline.com/archives/301725",
+      "source": "ZUU online",
+      "published": "2026-04-29T16:32:00+00:00",
+      "ts": 1777480320
+    },
+    {
+      "title": "アンダースロー： サナエノミクス　高市成長戦略／会田卓司",
+      "link": "https://zuuonline.com/archives/301727",
+      "source": "ZUU online",
+      "published": "2026-04-29T16:00:00+00:00",
+      "ts": 1777478400
+    },
+    {
+      "title": "SoFi CEO defends decision to hold guidance steady",
+      "link": "https://www.cnbc.com/2026/04/29/sofi-ceo-defends-decision-to-hold-guidance-steady.html",
+      "source": "CNBC Markets",
+      "published": "2026-04-29T13:48:10+00:00",
+      "ts": 1777470490
+    },
+    {
+      "title": "Bill Ackman's Pershing Square USA fund falls sharply in public market debut",
+      "link": "https://www.cnbc.com/2026/04/29/bill-ackmans-5-billion-pershing-square-ipo-to-start-trading-testing-berkshire-style-vision.html",
+      "source": "CNBC Markets",
+      "published": "2026-04-29T11:07:10+00:00",
+      "ts": 1777460830
+    },
+    {
+      "title": "Fed holds rates steady but with highest level of dissent since 1992",
+      "link": "https://www.cnbc.com/2026/04/29/fed-interest-rate-decision-april-2026.html",
+      "source": "CNBC Markets",
+      "published": "2026-04-29T10:25:28+00:00",
+      "ts": 1777458328
+    },
+    {
+      "title": "PayPal's new CEO makes Venmo a standalone business unit as potential buyers circle",
+      "link": "https://www.cnbc.com/2026/04/29/paypal-restructures-venmo-standalone-unit.html",
+      "source": "CNBC Markets",
+      "published": "2026-04-29T10:13:31+00:00",
+      "ts": 1777457611
+    },
+    {
+      "title": "Here's what changed in the new Fed statement",
+      "link": "https://www.cnbc.com/2026/04/29/april-fed-meeting-statement-redline.html",
+      "source": "CNBC Markets",
+      "published": "2026-04-29T09:06:00+00:00",
+      "ts": 1777453560
+    },
+    {
+      "title": "Traders brace for $800 billion in earnings-related stock movement",
+      "link": "https://www.cnbc.com/2026/04/29/traders-brace-for-800-billion-in-earnings-related-stock-movement.html",
+      "source": "CNBC Markets",
+      "published": "2026-04-29T08:24:27+00:00",
+      "ts": 1777451067
+    },
+    {
+      "title": "Here's everything to expect when the Fed issues its latest interest rate decision Wednesday",
+      "link": "https://www.cnbc.com/2026/04/28/fed-meeting-preview-april-2026.html",
+      "source": "CNBC Markets",
+      "published": "2026-04-29T06:35:18+00:00",
+      "ts": 1777444518
+    },
+    {
+      "title": "Startup Blockworks wants to become the crypto equivalent of Morningstar. How it plans to do it",
+      "link": "https://www.cnbc.com/2026/04/29/blockworks-wants-to-become-the-crypto-equivalent-of-morningstar-how-it-plans-to-do-it.html",
+      "source": "CNBC Markets",
+      "published": "2026-04-29T04:00:01+00:00",
+      "ts": 1777435201
+    },
+    {
+      "title": "【話題のクルマ最新事情】新型トヨタRAV4は、よりマルチに進化。ハイブリッドとPHEVの全4グレード構成。システム出力はハイブリッドが240ps、PHEVは329ps！",
+      "link": "https://zuuonline.com/archives/301663",
+      "source": "ZUU online",
+      "published": "2026-04-28T23:00:00+00:00",
+      "ts": 1777417200
+    },
+    {
+      "title": "なぜ差がつく？ 頭のよい人は読書を思考の材料にしている",
+      "link": "https://zuuonline.com/archives/301680",
+      "source": "ZUU online",
+      "published": "2026-04-28T23:00:00+00:00",
+      "ts": 1777417200
+    },
+    {
+      "title": "最高速277km/h、600kWの衝撃。Jaguar次世代EVレーサーを公開",
+      "link": "https://zuuonline.com/archives/301702",
+      "source": "ZUU online",
+      "published": "2026-04-28T21:02:00+00:00",
+      "ts": 1777410120
+    },
+    {
+      "title": "長期金利の上昇に伴い、2年後の不動産価格は最大3割減も",
+      "link": "https://zuuonline.com/archives/301667",
+      "source": "ZUU online",
+      "published": "2026-04-28T21:00:00+00:00",
+      "ts": 1777410000
+    },
+    {
+      "title": "AI・半導体相場で日経平均6万円突破も、ファッション株は下落広がる　「SVT インデックス」は12,577.8ポイント｜4月27日",
+      "link": "https://zuuonline.com/archives/301711",
+      "source": "ZUU online",
+      "published": "2026-04-28T18:02:00+00:00",
+      "ts": 1777399320
+    },
+    {
+      "title": "アディダスは歴史的快挙、アシックスは生産拠点新設　「SVT グローバル」はスポーツ株主導で反発｜4月27日",
+      "link": "https://zuuonline.com/archives/301713",
+      "source": "ZUU online",
+      "published": "2026-04-28T18:02:00+00:00",
+      "ts": 1777399320
+    },
+    {
+      "title": "ファーストリテイリングが指数押し上げ　「マーク＆ロナ」キューブは10％超の急落　「SVT インデックス」は12,779.1ポイントと続伸｜4月28日",
+      "link": "https://zuuonline.com/archives/301721",
+      "source": "ZUU online",
+      "published": "2026-04-28T18:02:00+00:00",
+      "ts": 1777399320
+    },
+    {
+      "title": "高配当株の魅力と落とし穴、手間と減配リスクはこう考える",
+      "link": "https://zuuonline.com/archives/301533",
+      "source": "ZUU online",
+      "published": "2026-04-28T18:00:00+00:00",
+      "ts": 1777399200
+    },
+    {
+      "title": "This bank CEO let his AI clone handle an earnings call — now he's signing an OpenAI deal",
+      "link": "https://www.cnbc.com/2026/04/27/openai-partners-with-customers-bank-in-push-to-automate-finance.html",
+      "source": "CNBC Markets",
+      "published": "2026-04-28T11:35:57+00:00",
+      "ts": 1777376157
+    }
+  ]
+}
