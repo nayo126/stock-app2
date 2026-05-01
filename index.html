@@ -1222,7 +1222,154 @@ body > button[onclick*="auto-analysis"]:hover {
   .stat-card, .stock-card, .ana-card { border-radius: 14px !important; }
 }
 
-/* ===== ユーザー要望: AIチャット〜マクロ環境のタブを横→縦並びに ===== */
+/* ============================================
+   📱 スマホファースト UX 改善
+   ============================================ */
+
+/* ===== 下部固定ナビゲーション (iOS風) ===== */
+.bottom-nav {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  background: rgba(15, 20, 35, 0.92);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 4px calc(8px + env(safe-area-inset-bottom));
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.5);
+}
+.bottom-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+}
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 4px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+  border: none;
+  color: #888;
+  font-size: 10px;
+  font-weight: 600;
+  min-height: 56px;
+  text-decoration: none;
+}
+.bottom-nav-item .icon { font-size: 22px; line-height: 1; margin-bottom: 4px; }
+.bottom-nav-item.active {
+  color: #0095f6;
+  background: rgba(0, 149, 246, 0.15);
+}
+.bottom-nav-item:active { transform: scale(0.95); }
+
+/* ===== ホームのタイルメニュー (mobile時表示) ===== */
+.home-tiles {
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+.home-tile {
+  background: rgba(20, 25, 40, 0.65);
+  backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-height: 110px;
+}
+.home-tile:active { transform: scale(0.96); }
+.home-tile .tile-icon { font-size: 36px; line-height: 1; }
+.home-tile .tile-label { font-size: 12px; font-weight: 700; }
+.home-tile .tile-sub { font-size: 10px; color: #888; }
+.home-tile.primary {
+  background: linear-gradient(135deg, rgba(0, 149, 246, 0.4), rgba(0, 212, 255, 0.3));
+  border-color: rgba(0, 149, 246, 0.4);
+}
+
+/* ===== 全体スマホ最適化 (mobile) ===== */
+@media (max-width: 768px) {
+  /* 余白調整 */
+  .container { padding: 12px 12px 80px !important; max-width: 100% !important; }
+
+  /* ヘッダ・アクションボタン縦並び */
+  header { gap: 12px !important; }
+
+  /* stats-row: 2列 → 1列の大きカード */
+  .stats-row { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+  .stat-card { padding: 14px !important; }
+  .stat-value { font-size: 20px !important; }
+
+  /* タブを画面外に隠す = bottom nav とドロワーで代替 */
+  .tabs {
+    display: none !important;
+  }
+
+  /* 下部ナビ表示 */
+  .bottom-nav { display: block !important; }
+
+  /* ホームタイル表示 */
+  .home-tiles { display: grid !important; }
+
+  /* 各カードの padding 大きく */
+  .ana-card-head { padding: 14px 16px !important; min-height: 56px; }
+  .ana-name { font-size: 15px !important; }
+  .ana-price { font-size: 16px !important; }
+
+  /* タップターゲット拡大 */
+  button, a, .ana-tabs button, .snap-tabs button {
+    min-height: 44px;
+  }
+  .ana-tabs button, .snap-tabs button {
+    padding: 10px 14px !important;
+    font-size: 13px !important;
+  }
+
+  /* h1 大きく目立つ */
+  h1 { font-size: 26px !important; }
+
+  /* チャート余裕 */
+  .ana-chart-wrap canvas { height: 200px !important; }
+
+  /* シナリオカード縦並び */
+  .ana-scenarios { grid-template-columns: 1fr !important; gap: 6px !important; }
+
+  /* forecast table フォント拡大 */
+  .ana-forecast th, .ana-forecast td { padding: 8px 6px !important; font-size: 12px !important; }
+
+  /* スナップショット銘柄 grid 3列 */
+  #snap-stocks-grid { grid-template-columns: repeat(3, 1fr) !important; }
+  .snap-card { padding: 8px !important; }
+  .snap-card .price { font-size: 13px !important; }
+
+  /* ドロワーメニュー強調 */
+  .macos-sidebar { width: 280px; }
+  .macos-sidebar a { font-size: 15px !important; min-height: 44px; padding: 12px 14px !important; }
+}
+
+/* PC では tabs を縦リストで表示 */
+@media (min-width: 769px) {
+  .home-tiles { display: none !important; }
+  .bottom-nav { display: none !important; }
+}
+
+/* ===== 元: AIチャット〜マクロ環境のタブを縦並びに ===== */
 /* main-layout を1列化 (左tabs + 右content の横並び解除) */
 .main-layout {
   display: block !important;
@@ -1255,6 +1402,54 @@ body > button[onclick*="auto-analysis"]:hover {
 <body>
 <!-- ===== サイドバートグル (mobile) ===== -->
 <button class="macos-sidebar-toggle" onclick="document.querySelector('.macos-sidebar').classList.toggle('open')">☰</button>
+
+<!-- ===== iOS風 下部固定ナビ (mobile) ===== -->
+<nav class="bottom-nav">
+  <div class="bottom-nav-grid">
+    <a class="bottom-nav-item active" onclick="switchTab('home'); return false;" data-target="home">
+      <span class="icon">🏠</span>
+      <span>ホーム</span>
+    </a>
+    <a class="bottom-nav-item" onclick="switchTab('analysis'); return false;" data-target="analysis">
+      <span class="icon">📊</span>
+      <span>分析</span>
+    </a>
+    <a class="bottom-nav-item" onclick="switchTab('autodata'); return false;" data-target="autodata">
+      <span class="icon">📡</span>
+      <span>データ</span>
+    </a>
+    <a class="bottom-nav-item" onclick="switchTab('chat'); return false;" data-target="chat">
+      <span class="icon">💬</span>
+      <span>チャット</span>
+    </a>
+    <a class="bottom-nav-item" onclick="document.querySelector('.macos-sidebar').classList.toggle('open'); return false;">
+      <span class="icon">☰</span>
+      <span>その他</span>
+    </a>
+  </div>
+</nav>
+
+<!-- グローバル switchTab 関数 -->
+<script>
+window.switchTab = function(target) {
+  // 既存タブシステム呼び出し
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  const tab = document.querySelector('[data-tab="' + target + '"]');
+  const content = document.getElementById('tab-' + target);
+  if (tab) tab.classList.add('active');
+  if (content) {
+    content.classList.add('active');
+    setTimeout(() => content.scrollIntoView({behavior: 'smooth', block: 'start'}), 100);
+  }
+  // 下部ナビの active 切替
+  document.querySelectorAll('.bottom-nav-item').forEach(b => b.classList.remove('active'));
+  const bn = document.querySelector('.bottom-nav-item[data-target="' + target + '"]');
+  if (bn) bn.classList.add('active');
+  // サイドバー閉じる
+  document.querySelector('.macos-sidebar')?.classList.remove('open');
+};
+</script>
 
 <!-- ===== サイドバーメニュー ===== -->
 <aside class="macos-sidebar">
@@ -1361,8 +1556,52 @@ body > button[onclick*="auto-analysis"]:hover {
   </div>
   <div class="content-area">
 
-  <!-- 🏠ホームタブ - ヘッダ + risk-box + stats-row をここにJSで移動 -->
-  <div class="tab-content active" id="tab-home"></div>
+  <!-- 🏠ホームタブ - ヘッダ + risk-box + stats-row をここにJSで移動 + タイルメニュー -->
+  <div class="tab-content active" id="tab-home">
+    <!-- スマホ用: 主要機能タイル -->
+    <div class="home-tiles">
+      <a class="home-tile primary" onclick="switchTab('analysis'); return false;">
+        <span class="tile-icon">📊</span>
+        <span class="tile-label">詳細分析</span>
+        <span class="tile-sub">tier根拠+チャート+予想</span>
+      </a>
+      <a class="home-tile" onclick="switchTab('autodata'); return false;">
+        <span class="tile-icon">📡</span>
+        <span class="tile-label">自動データ</span>
+        <span class="tile-sub">3594銘柄+ニュース</span>
+      </a>
+      <a class="home-tile" onclick="switchTab('chat'); return false;">
+        <span class="tile-icon">💬</span>
+        <span class="tile-label">AIチャット</span>
+        <span class="tile-sub">質問・相談</span>
+      </a>
+      <a class="home-tile" onclick="switchTab('watchlist'); return false;">
+        <span class="tile-icon">📋</span>
+        <span class="tile-label">保有銘柄</span>
+        <span class="tile-sub">NISA管理</span>
+      </a>
+      <a class="home-tile" onclick="switchTab('advisor'); return false;">
+        <span class="tile-icon">🤖</span>
+        <span class="tile-label">アドバイザー</span>
+        <span class="tile-sub">売買提案</span>
+      </a>
+      <a class="home-tile" onclick="switchTab('news'); return false;">
+        <span class="tile-icon">🌍</span>
+        <span class="tile-label">大型ニュース</span>
+        <span class="tile-sub">10大テーマ</span>
+      </a>
+      <a class="home-tile" onclick="switchTab('main'); return false;">
+        <span class="tile-icon">🏆</span>
+        <span class="tile-label">トップ20</span>
+        <span class="tile-sub">優良銘柄</span>
+      </a>
+      <a class="home-tile" onclick="switchTab('yutai'); return false;">
+        <span class="tile-icon">🎁</span>
+        <span class="tile-label">株主優待</span>
+        <span class="tile-sub">ランキング45</span>
+      </a>
+    </div>
+  </div>
 
   <!-- 📊詳細分析タブ - 既存の #auto-analysis セクションをここにJSで移動 -->
   <div class="tab-content" id="tab-analysis"></div>
