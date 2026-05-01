@@ -815,6 +815,18 @@
 </style>
 </head>
 <body>
+<!-- バージョン確認用バナー（このバナーが見えれば最新HTML） -->
+<div style="background:linear-gradient(90deg,#ffd166 0%,#64ffda 100%); color:#0a0e1a; padding:10px; text-align:center; font-weight:700; font-size:13px; position:sticky; top:0; z-index:9998;">
+  ✨ v2026-05-01 新機能: 自動取得株価+ニュース+詳細分析・予想
+  <a href="#auto-analysis" style="color:#0a0e1a; text-decoration:underline; margin-left:8px;">📊分析へ</a>
+  <a href="#auto-snapshot" style="color:#0a0e1a; text-decoration:underline; margin-left:6px;">📡データへ</a>
+</div>
+<!-- 右下フローティングボタン: 詳細分析へジャンプ -->
+<button onclick="document.getElementById('auto-analysis')?.scrollIntoView({behavior:'smooth'})"
+  style="position:fixed; bottom:20px; right:20px; z-index:9999; width:60px; height:60px; border-radius:50%; background:#ffd166; color:#0a0e1a; border:none; box-shadow:0 4px 12px rgba(0,0,0,0.4); font-size:24px; cursor:pointer;">
+  📊
+</button>
+
 <div class="container">
 
   <header>
