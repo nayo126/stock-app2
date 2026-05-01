@@ -833,13 +833,13 @@
 }
 </style>
 <style>
-/* ===== 抑えた Aurora 背景 (threads-app風 ミニマル黒) ===== */
-@keyframes aurora-shift {
-  0%, 100% { transform: translate(0%, 0%); }
-  50% { transform: translate(5%, -5%); }
-}
+/* ===== macOS的 自然写真背景 + ダークオーバーレイ ===== */
 body {
-  background: #0a0a0a !important;
+  background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=2400&q=85');
+  background-size: cover !important;
+  background-position: center center !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
   font-family: "Inter", "Noto Sans JP", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Hiragino Sans", "Segoe UI", sans-serif !important;
   font-feature-settings: "kern", "liga", "calt", "tnum" !important;
   letter-spacing: -0.011em !important;
@@ -851,14 +851,132 @@ body {
 body::before {
   content: '';
   position: fixed;
-  inset: -30%;
+  inset: 0;
   background:
-    radial-gradient(ellipse 40% 30% at 20% 20%, rgba(0, 149, 246, 0.08), transparent 60%),
-    radial-gradient(ellipse 35% 25% at 80% 70%, rgba(0, 212, 255, 0.06), transparent 60%);
-  filter: blur(80px);
-  z-index: -2;
-  animation: aurora-shift 30s ease-in-out infinite;
+    linear-gradient(135deg, rgba(10, 14, 26, 0.78) 0%, rgba(10, 14, 26, 0.88) 100%),
+    radial-gradient(ellipse 50% 40% at 20% 20%, rgba(0, 149, 246, 0.15), transparent 70%);
+  z-index: -1;
   pointer-events: none;
+  backdrop-filter: blur(2px);
+}
+
+/* ===== サイドバーメニュー (threads-api-app と同じ構成) ===== */
+.macos-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 220px;
+  background: rgba(15, 20, 35, 0.55);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 50px 12px 20px;
+  z-index: 100;
+  overflow-y: auto;
+  box-shadow: 8px 0 32px rgba(0, 0, 0, 0.4);
+}
+.macos-sidebar-header {
+  padding: 0 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 12px;
+}
+.macos-sidebar-header h1 {
+  font-size: 18px !important;
+  margin: 0 !important;
+  background: linear-gradient(135deg, #0095f6, #00d4ff) !important;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.macos-sidebar-header .sub {
+  font-size: 11px;
+  color: #888;
+  margin-top: 4px;
+}
+.macos-sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  color: #c8d0e0;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 2px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.macos-sidebar a:hover {
+  background: rgba(0, 149, 246, 0.15);
+  color: #fff;
+  transform: translateX(2px);
+}
+.macos-sidebar a.active {
+  background: rgba(0, 149, 246, 0.25);
+  color: #00d4ff;
+  border-left: 3px solid #0095f6;
+  padding-left: 9px;
+}
+.macos-sidebar .group-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #555;
+  letter-spacing: 0.1em;
+  padding: 14px 12px 6px;
+  font-weight: 700;
+}
+.macos-sidebar-footer {
+  position: absolute;
+  bottom: 16px;
+  left: 12px;
+  right: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 10px;
+  color: #666;
+  text-align: center;
+}
+
+/* ===== メインコンテンツ サイドバー右にずらす ===== */
+.container {
+  margin-left: 240px !important;
+  max-width: calc(100% - 260px) !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== モバイル: サイドバー hamburger ===== */
+.macos-sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 102;
+  background: rgba(0, 149, 246, 0.9) !important;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+@media (max-width: 768px) {
+  .macos-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .macos-sidebar.open {
+    transform: translateX(0);
+  }
+  .macos-sidebar-toggle { display: block; }
+  .container {
+    margin-left: 0 !important;
+    max-width: 100% !important;
+    padding-top: 60px !important;
+  }
 }
 body::after {
   content: '';
@@ -877,7 +995,7 @@ body::after {
   z-index: 1;
 }
 
-/* threads-api-app と統一カード */
+/* threads-api-app と統一カード（背景透過で写真が透ける） */
 header,
 .risk-box,
 .stat-card,
@@ -891,12 +1009,14 @@ header,
 section[id^="auto-"],
 .ana-card,
 .snap-card {
-  background: #1a1a1a !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  border: 1px solid #333 !important;
-  border-radius: 12px !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+  background: rgba(20, 25, 40, 0.55) !important;
+  backdrop-filter: blur(28px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 14px !important;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
   position: relative;
   overflow: hidden;
 }
@@ -1105,11 +1225,45 @@ body > button[onclick*="auto-analysis"]:hover {
 
 </head>
 <body>
-<!-- バージョン確認用バナー（このバナーが見えれば最新HTML） -->
-<div style="background:linear-gradient(90deg,#ffd166 0%,#64ffda 100%); color:#0a0e1a; padding:10px; text-align:center; font-weight:700; font-size:13px; position:sticky; top:0; z-index:9998;">
-  ✨ v2026-05-01 新機能: 自動取得株価+ニュース+詳細分析・予想
-  <a href="#auto-analysis" style="color:#0a0e1a; text-decoration:underline; margin-left:8px;">📊分析へ</a>
-  <a href="#auto-snapshot" style="color:#0a0e1a; text-decoration:underline; margin-left:6px;">📡データへ</a>
+<!-- ===== サイドバートグル (mobile) ===== -->
+<button class="macos-sidebar-toggle" onclick="document.querySelector('.macos-sidebar').classList.toggle('open')">☰</button>
+
+<!-- ===== サイドバーメニュー ===== -->
+<aside class="macos-sidebar">
+  <div class="macos-sidebar-header">
+    <h1>📈 Stock App</h1>
+    <div class="sub">投資ダッシュボード v2</div>
+  </div>
+
+  <div class="group-label">━ 分析</div>
+  <a href="#auto-analysis" onclick="document.querySelector('.macos-sidebar').classList.remove('open')">📊 詳細分析・予想</a>
+  <a href="#auto-snapshot" onclick="document.querySelector('.macos-sidebar').classList.remove('open')">📡 自動取得データ</a>
+
+  <div class="group-label">━ 銘柄</div>
+  <a href="#stocksMain" onclick="document.querySelector('.macos-sidebar').classList.remove('open')">⭐ メイン20</a>
+  <a href="#stocksUnder3000" onclick="document.querySelector('.macos-sidebar').classList.remove('open')">💰 3000円以下</a>
+  <a href="#stocksTenbagger" onclick="document.querySelector('.macos-sidebar').classList.remove('open')">🚀 大化け候補</a>
+  <a href="#" onclick="event.preventDefault(); document.querySelector('[data-cat=STOCKS_GAMBLE]')?.click(); document.getElementById('auto-analysis').scrollIntoView({behavior:'smooth'}); document.querySelector('.macos-sidebar').classList.remove('open')">🎰 ギャンブル30</a>
+
+  <div class="group-label">━ NISA管理</div>
+  <a href="#nisaSection" onclick="document.querySelector('.macos-sidebar').classList.remove('open')">💳 NISA状況</a>
+  <a href="#chatSection" onclick="document.querySelector('.macos-sidebar').classList.remove('open')">💬 AIチャット</a>
+
+  <div class="group-label">━ ニュース</div>
+  <a href="#majorThemes" onclick="document.querySelector('.macos-sidebar').classList.remove('open')">🌍 大型テーマ</a>
+  <a href="#snap-news" onclick="document.querySelector('.macos-sidebar').classList.remove('open')">📰 自動収集</a>
+
+  <div class="macos-sidebar-footer">
+    自動更新中 · 15分毎<br>
+    GitHub Actions
+  </div>
+</aside>
+
+<!-- バージョンバナー -->
+<div style="background:linear-gradient(90deg,#0095f6 0%,#00d4ff 100%); color:#fff; padding:8px 16px; text-align:center; font-weight:600; font-size:12px; position:sticky; top:0; z-index:9998;">
+  ✨ v2026-05-01 macOS構成 - threads-app統一
+  <a href="#auto-analysis" style="color:#fff; text-decoration:underline; margin-left:8px;">📊分析</a>
+  <a href="#auto-snapshot" style="color:#fff; text-decoration:underline; margin-left:6px;">📡データ</a>
 </div>
 <!-- 右下フローティングボタン: 詳細分析へジャンプ -->
 <button onclick="document.getElementById('auto-analysis')?.scrollIntoView({behavior:'smooth'})"
