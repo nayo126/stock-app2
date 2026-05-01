@@ -813,6 +813,274 @@
     header { flex-direction: column; align-items: flex-start; gap: 10px; }
   }
 </style>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     ART UPGRADE LAYER: Glassmorphism + Aurora + Neon + Modern Typography
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ===== Aurora 動く背景 ===== */
+@keyframes aurora-shift {
+  0%, 100% { transform: translate(0%, 0%) rotate(0deg); }
+  33% { transform: translate(10%, -10%) rotate(2deg); }
+  66% { transform: translate(-10%, 10%) rotate(-2deg); }
+}
+@keyframes aurora-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 0.9; }
+}
+body {
+  background: #06080f !important;
+  font-family: "Inter", "Noto Sans JP", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Hiragino Sans", sans-serif !important;
+  font-feature-settings: "kern", "liga", "calt", "tnum", "ss01" !important;
+  letter-spacing: -0.011em !important;
+  position: relative !important;
+  min-height: 100vh !important;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  background:
+    radial-gradient(ellipse 50% 40% at 20% 25%, rgba(100, 255, 218, 0.22), transparent 60%),
+    radial-gradient(ellipse 45% 35% at 80% 30%, rgba(255, 0, 200, 0.18), transparent 60%),
+    radial-gradient(ellipse 60% 45% at 50% 80%, rgba(255, 209, 102, 0.15), transparent 60%),
+    radial-gradient(ellipse 35% 30% at 30% 60%, rgba(120, 100, 255, 0.18), transparent 60%);
+  filter: blur(60px);
+  z-index: -2;
+  animation: aurora-shift 20s ease-in-out infinite, aurora-pulse 8s ease-in-out infinite;
+  pointer-events: none;
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0);
+  background-size: 32px 32px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ===== Glassmorphism: 全カード 2重ガラス効果 ===== */
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ベースガラスclass */
+header,
+.risk-box,
+.stat-card,
+.stock-card,
+.menu-section,
+.section-card,
+.plan-card,
+.deposit-row,
+.curriculum-item,
+.major-themes-box,
+section[id^="auto-"],
+.ana-card,
+.snap-card {
+  background: rgba(20, 25, 45, 0.4) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 18px !important;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 内側の2層目ガラス */
+.stat-card::before,
+.stock-card::before,
+.ana-card::before,
+section[id^="auto-"]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 40%, rgba(255,255,255,0.02) 100%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* 上部ハイライト */
+.stat-card::after,
+.stock-card::after,
+.ana-card::after,
+header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  pointer-events: none;
+}
+
+/* ===== Hover: 浮き上がり ===== */
+.stat-card,
+.stock-card,
+.ana-card {
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
+}
+.stat-card:hover,
+.stock-card:hover,
+.ana-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(100, 255, 218, 0.3) !important;
+}
+
+/* ===== Typography ===== */
+h1, h2, h3 {
+  letter-spacing: -0.025em !important;
+  font-weight: 800 !important;
+}
+h1 {
+  background: linear-gradient(135deg, #64ffda 0%, #c8a2ff 50%, #ffd166 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 40px rgba(100, 255, 218, 0.3);
+  font-size: 28px !important;
+}
+.stat-value, .ana-price, .snap-card .price {
+  font-family: "Inter", monospace !important;
+  font-feature-settings: "tnum" !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* ===== Tier badges: ネオン発光 ===== */
+.ana-tier.tS, .stock-card[data-tier="S"], .tier-S {
+  background: linear-gradient(135deg, #ff006e 0%, #ff7392 100%) !important;
+  box-shadow: 0 0 25px rgba(255, 0, 110, 0.5), 0 4px 12px rgba(255, 0, 110, 0.3) !important;
+  color: #fff !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+.ana-tier.tA, .tier-A {
+  background: linear-gradient(135deg, #ffd166 0%, #ff9f1c 100%) !important;
+  box-shadow: 0 0 25px rgba(255, 209, 102, 0.5), 0 4px 12px rgba(255, 159, 28, 0.3) !important;
+  color: #0a0e1a !important;
+}
+.ana-tier.tB, .tier-B {
+  background: linear-gradient(135deg, #64ffda 0%, #06d6a0 100%) !important;
+  box-shadow: 0 0 25px rgba(100, 255, 218, 0.5), 0 4px 12px rgba(6, 214, 160, 0.3) !important;
+  color: #0a0e1a !important;
+}
+.ana-tier.tC, .tier-C {
+  background: linear-gradient(135deg, #95a3b8 0%, #6b7892 100%) !important;
+  color: #0a0e1a !important;
+}
+
+/* ===== Buttons: glass ===== */
+button, .menu-btn, .action-btn, .ana-tabs button, .snap-tabs button {
+  background: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  color: #e6e9f0 !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  transition: all 0.3s ease !important;
+}
+button:hover, .menu-btn:hover, .action-btn:hover {
+  background: rgba(100, 255, 218, 0.15) !important;
+  border-color: rgba(100, 255, 218, 0.4) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(100, 255, 218, 0.3);
+}
+.ana-tabs button.active, .snap-tabs button.active {
+  background: linear-gradient(135deg, #ffd166, #ff9f1c) !important;
+  color: #0a0e1a !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 20px rgba(255, 209, 102, 0.4) !important;
+}
+
+/* ===== バナー: より洗練されたガラス ===== */
+body > div[style*="position:sticky"] {
+  background: linear-gradient(90deg, rgba(255,209,102,0.85), rgba(100,255,218,0.85)) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+}
+
+/* ===== Floating button: 強烈なネオン ===== */
+body > button[onclick*="auto-analysis"] {
+  background: linear-gradient(135deg, #ffd166, #ff006e) !important;
+  box-shadow:
+    0 0 40px rgba(255, 0, 110, 0.5),
+    0 8px 24px rgba(0, 0, 0, 0.5),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3) !important;
+  border: none !important;
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 40px rgba(255, 0, 110, 0.5), 0 8px 24px rgba(0, 0, 0, 0.5); }
+  50% { box-shadow: 0 0 60px rgba(255, 209, 102, 0.7), 0 8px 24px rgba(0, 0, 0, 0.5); }
+}
+
+/* ===== チャート背景もガラス化 ===== */
+.ana-chart-wrap canvas {
+  background: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px !important;
+}
+
+/* ===== Forecast table: モダン ===== */
+.ana-forecast {
+  background: rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+.ana-forecast th {
+  background: rgba(255, 209, 102, 0.08) !important;
+  text-transform: uppercase;
+  font-size: 10px !important;
+  letter-spacing: 0.05em;
+}
+
+/* ===== 不要要素を非表示 ===== */
+.risk-box-old,
+.copyright-footer,
+[class*="warning-old"],
+.tip-box,
+.disclaimer-redundant {
+  display: none !important;
+}
+
+/* ===== スクロールバー細く ===== */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(100,255,218,0.4), rgba(255,209,102,0.4));
+  border-radius: 3px;
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: rgba(255, 209, 102, 0.4);
+  color: #fff;
+}
+
+/* ===== 小さい画面最適化 ===== */
+@media (max-width: 600px) {
+  .container { padding: 12px !important; }
+  h1 { font-size: 22px !important; }
+  .stat-card, .stock-card, .ana-card { border-radius: 14px !important; }
+}
+</style>
+
 </head>
 <body>
 <!-- バージョン確認用バナー（このバナーが見えれば最新HTML） -->
