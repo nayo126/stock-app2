@@ -6671,6 +6671,33 @@ refreshAll();
     });
   });
 
+  // 既存のSTOCKS_xxx 配列の price を snapshot で上書き
+  function applySnapshotToExistingStocks(snapshot) {
+    if (!snapshot || !snapshot.stocks) return 0;
+    const stocksMap = snapshot.stocks;
+    let updated = 0;
+    ['STOCKS_MAIN', 'STOCKS_UNDER3000', 'STOCKS_TENBAGGER', 'STOCKS_BENEFIT', 'STOCKS_ALL40'].forEach(name => {
+      const arr = window[name];
+      if (!Array.isArray(arr)) return;
+      arr.forEach(item => {
+        const live = stocksMap[item.code];
+        if (live && live.p != null) {
+          item.price = live.p;
+          item._live = true;
+          item._change_pct = live.cp;
+          item._change = live.c;
+          item._volume = live.v;
+          updated++;
+        }
+      });
+    });
+    // 既存render関数を呼んでUI再描画
+    try {
+      if (typeof refreshAll === 'function') refreshAll();
+    } catch (e) { console.warn('[snapshot] refreshAll err:', e); }
+    return updated;
+  }
+
   async function load() {
     try {
       const url = './data/snapshot.json?t=' + Date.now();
@@ -6679,7 +6706,8 @@ refreshAll();
       const d = await res.json();
       snapshotData = d;
       $ts.textContent = '更新: ' + new Date(d.generated_at).toLocaleString('ja-JP');
-      $status.textContent = `✓ ${Object.keys(d.stocks||{}).length}銘柄 / ${(d.news||[]).length}ニュース`;
+      const updated = applySnapshotToExistingStocks(d);
+      $status.textContent = `✓ ${Object.keys(d.stocks||{}).length}銘柄 / ${(d.news||[]).length}ニュース / 既存${updated}件更新`;
       renderIndices(d);
       renderStocks('chg-desc');
       renderNews(d);
