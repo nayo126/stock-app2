@@ -6591,6 +6591,335 @@ refreshAll();
 }
 </style>
 
+<!-- ============================================
+     📊 詳細分析 (重要60銘柄: tier根拠+60日チャート+3シナリオ)
+     ============================================ -->
+<style>
+#auto-analysis {
+  margin: 24px auto 16px;
+  padding: 18px 16px;
+  max-width: 1200px;
+  background: linear-gradient(180deg, #14213d 0%, #0a0e1a 100%);
+  border: 1px solid #1f2a44;
+  border-radius: 14px;
+  color: #e6e9f0;
+  font-family: -apple-system, "Hiragino Sans", sans-serif;
+}
+#auto-analysis h2 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: #ffd166;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#auto-analysis .ts {
+  font-size: 12px;
+  color: #7a8aa3;
+  margin-bottom: 14px;
+}
+.ana-tabs { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+.ana-tabs button {
+  background: rgba(255,255,255,0.06);
+  color: #e6e9f0;
+  border: 1px solid #1f2a44;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.ana-tabs button.active {
+  background: #ffd166;
+  color: #0a0e1a;
+  border-color: #ffd166;
+  font-weight: 700;
+}
+.ana-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid #1f2a44;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.ana-card-head {
+  padding: 12px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ana-card-head:hover { background: rgba(255,255,255,0.03); }
+.ana-tier {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  text-align: center;
+  line-height: 28px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.ana-tier.tS { background: #ff7392; color: #fff; }
+.ana-tier.tA { background: #ffd166; color: #0a0e1a; }
+.ana-tier.tB { background: #64ffda; color: #0a0e1a; }
+.ana-tier.tC { background: #95a3b8; color: #0a0e1a; }
+.ana-name { flex: 1; font-weight: 600; font-size: 14px; }
+.ana-code { color: #7a8aa3; font-size: 12px; margin-left: 6px; }
+.ana-price { text-align: right; font-weight: 700; }
+.ana-chg { font-size: 12px; }
+.ana-chg.up { color: #64ffda; }
+.ana-chg.dn { color: #ff7392; }
+.ana-arrow { color: #7a8aa3; margin-left: 6px; }
+.ana-card-body {
+  display: none;
+  padding: 14px;
+  border-top: 1px solid #1f2a44;
+  background: rgba(0,0,0,0.2);
+}
+.ana-card.open .ana-card-body { display: block; }
+.ana-card.open .ana-arrow { transform: rotate(90deg); }
+.ana-section { margin-bottom: 14px; }
+.ana-section h4 { margin: 0 0 6px; font-size: 13px; color: #ffd166; }
+.ana-points { font-size: 12px; line-height: 1.7; color: #c8d0e0; }
+.ana-points li { margin-bottom: 2px; list-style: none; }
+.ana-scenarios {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+.ana-sc {
+  padding: 10px 8px;
+  border-radius: 8px;
+  text-align: center;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid #1f2a44;
+}
+.ana-sc.bull { border-color: rgba(100,255,218,0.4); }
+.ana-sc.neutral { border-color: rgba(149,163,184,0.4); }
+.ana-sc.bear { border-color: rgba(255,115,146,0.4); }
+.ana-sc .lbl { font-size: 11px; color: #95a3b8; }
+.ana-sc .tgt { font-size: 16px; font-weight: 700; margin-top: 2px; }
+.ana-sc .pct { font-size: 12px; margin-top: 2px; }
+.ana-sc.bull .pct { color: #64ffda; }
+.ana-sc.bear .pct { color: #ff7392; }
+.ana-sc .cmt { font-size: 10px; color: #95a3b8; margin-top: 4px; line-height: 1.4; }
+.ana-sc .prob { font-size: 10px; color: #ffd166; margin-top: 2px; }
+.ana-chart-wrap { margin: 12px 0; }
+.ana-chart-wrap canvas { width: 100%; height: 160px; display: block; background: rgba(0,0,0,0.3); border-radius: 6px; }
+.ana-stats { display: flex; gap: 12px; flex-wrap: wrap; font-size: 11px; color: #95a3b8; margin-top: 6px; }
+@media (max-width: 600px) {
+  .ana-scenarios { grid-template-columns: 1fr; }
+}
+</style>
+
+<section id="auto-analysis">
+  <h2>📊 詳細分析・予想 <span id="ana-status" style="font-size:11px;color:#7a8aa3;margin-left:auto;">読込中...</span></h2>
+  <div class="ts" id="ana-ts">--</div>
+  <div class="ana-tabs">
+    <button class="active" data-cat="STOCKS_MAIN">⭐メイン20</button>
+    <button data-cat="STOCKS_UNDER3000">💰3000円以下20</button>
+    <button data-cat="STOCKS_TENBAGGER">🚀大化け候補20</button>
+  </div>
+  <div id="ana-list"></div>
+</section>
+
+<script>
+(async function() {
+  const $status = document.getElementById('ana-status');
+  const $ts = document.getElementById('ana-ts');
+  const $list = document.getElementById('ana-list');
+  let analysisData = null;
+  let currentCategory = 'STOCKS_MAIN';
+
+  function fmtNum(n) { return n == null ? '--' : Number(n).toLocaleString('ja-JP', {maximumFractionDigits: 0}); }
+  function fmtPct(n) { return n == null ? '' : (n >= 0 ? '+' : '') + Number(n).toFixed(1) + '%'; }
+
+  function drawChart(canvas, history, scenarios, current) {
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width = canvas.clientWidth * (window.devicePixelRatio||1);
+    const H = canvas.height = 160 * (window.devicePixelRatio||1);
+    ctx.scale(window.devicePixelRatio||1, window.devicePixelRatio||1);
+    const w = canvas.clientWidth;
+    const h = 160;
+    ctx.clearRect(0, 0, w, h);
+    if (!history || !history.length) return;
+    const prices = history.map(d => d.p);
+    const min = Math.min(...prices, scenarios.bear.target);
+    const max = Math.max(...prices, scenarios.bull.target);
+    const range = max - min || 1;
+    const padX = 30, padY = 10;
+    const plotW = w - padX*2, plotH = h - padY*2;
+
+    // シナリオ水平線
+    function ly(p) { return padY + plotH - (p - min) / range * plotH; }
+    [
+      {y: scenarios.bull.target, color: '#64ffda', label: '🚀'},
+      {y: scenarios.neutral.target, color: '#95a3b8', label: '➡️'},
+      {y: scenarios.bear.target, color: '#ff7392', label: '📉'},
+    ].forEach(line => {
+      ctx.strokeStyle = line.color;
+      ctx.setLineDash([4, 3]);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(padX, ly(line.y));
+      ctx.lineTo(w - padX, ly(line.y));
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = line.color;
+      ctx.font = '10px sans-serif';
+      ctx.fillText(`${line.label}${Math.round(line.y).toLocaleString()}`, w - padX + 2, ly(line.y) + 3);
+    });
+
+    // 価格ライン
+    ctx.strokeStyle = '#ffd166';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    history.forEach((d, i) => {
+      const x = padX + (i / (history.length - 1)) * plotW;
+      const y = ly(d.p);
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+
+    // 現在値ドット
+    if (history.length) {
+      const last = history[history.length - 1];
+      const x = padX + plotW;
+      const y = ly(last.p);
+      ctx.fillStyle = '#ffd166';
+      ctx.beginPath();
+      ctx.arc(x, y, 3, 0, Math.PI*2);
+      ctx.fill();
+    }
+  }
+
+  function renderList() {
+    if (!analysisData) return;
+    const stocks = analysisData.stocks || {};
+    const items = Object.entries(stocks)
+      .filter(([code, s]) => s.category === currentCategory)
+      .sort((a, b) => (a[1].rank||999) - (b[1].rank||999));
+
+    $list.innerHTML = items.map(([code, s]) => {
+      const tierClass = `t${s.tier || 'C'}`;
+      const sc = s.scenarios;
+      const cur = s.current;
+      return `
+        <div class="ana-card" data-code="${code}">
+          <div class="ana-card-head">
+            <span class="ana-tier ${tierClass}">${s.tier || '?'}</span>
+            <span class="ana-name">${s.name}<span class="ana-code">[${code}]</span></span>
+            <span class="ana-price">${fmtNum(cur)}円</span>
+            <span class="ana-arrow">▶</span>
+          </div>
+          <div class="ana-card-body">
+            <div class="ana-section">
+              <h4>📋 評価: ${s.rationale.tier_label}</h4>
+              <div style="font-size:13px; line-height:1.6; color:#e6e9f0;">${s.rationale.summary || ''}</div>
+            </div>
+
+            ${sc ? `
+            <div class="ana-section">
+              <h4>📈 価格予想 (60日チャート + 3シナリオ目標)</h4>
+              <div class="ana-chart-wrap"><canvas></canvas></div>
+              <div class="ana-stats">
+                <span>📊 60日高値: ${fmtNum(s.stats.max60)}円</span>
+                <span>📊 60日安値: ${fmtNum(s.stats.min60)}円</span>
+                <span>📊 60日平均: ${fmtNum(s.stats.avg60)}円</span>
+                <span>⚡ ボラティリティ: ${s.stats.volatility_pct}%</span>
+              </div>
+              <div class="ana-scenarios">
+                <div class="ana-sc bull">
+                  <div class="lbl">${sc.bull.label}</div>
+                  <div class="tgt">${fmtNum(sc.bull.target)}円</div>
+                  <div class="pct">${fmtPct(sc.bull.change_pct)}</div>
+                  <div class="prob">確率: ${sc.bull.prob}</div>
+                  <div class="cmt">${sc.bull.comment}</div>
+                </div>
+                <div class="ana-sc neutral">
+                  <div class="lbl">${sc.neutral.label}</div>
+                  <div class="tgt">${fmtNum(sc.neutral.target)}円</div>
+                  <div class="pct">${fmtPct(sc.neutral.change_pct)}</div>
+                  <div class="prob">確率: ${sc.neutral.prob}</div>
+                  <div class="cmt">${sc.neutral.comment}</div>
+                </div>
+                <div class="ana-sc bear">
+                  <div class="lbl">${sc.bear.label}</div>
+                  <div class="tgt">${fmtNum(sc.bear.target)}円</div>
+                  <div class="pct">${fmtPct(sc.bear.change_pct)}</div>
+                  <div class="prob">確率: ${sc.bear.prob}</div>
+                  <div class="cmt">${sc.bear.comment}</div>
+                </div>
+              </div>
+            </div>
+            ` : '<div class="ana-section">⚠️ 価格データ取得不可</div>'}
+
+            <div class="ana-section">
+              <h4>🚀 強気ポイント (なぜ上がる)</h4>
+              <ul class="ana-points">
+                ${(s.rationale.bull_points || []).map(p => `<li>${p}</li>`).join('')}
+              </ul>
+            </div>
+            <div class="ana-section">
+              <h4>⚠️ リスクポイント (どう下がるか)</h4>
+              <ul class="ana-points">
+                ${(s.rationale.bear_points || []).map(p => `<li>${p}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // クリックで展開、開いたらチャート描画
+    $list.querySelectorAll('.ana-card').forEach(card => {
+      card.querySelector('.ana-card-head').addEventListener('click', () => {
+        card.classList.toggle('open');
+        if (card.classList.contains('open')) {
+          const canvas = card.querySelector('canvas');
+          if (canvas) {
+            const code = card.dataset.code;
+            const s = stocks[code];
+            if (s && s.history) {
+              setTimeout(() => drawChart(canvas, s.history, s.scenarios, s.current), 50);
+            }
+          }
+        }
+      });
+    });
+  }
+
+  document.querySelectorAll('.ana-tabs button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.ana-tabs button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentCategory = btn.dataset.cat;
+      renderList();
+    });
+  });
+
+  async function loadAnalysis() {
+    try {
+      const res = await fetch('./data/analysis.json?t=' + Date.now(), {cache: 'no-store'});
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const d = await res.json();
+      analysisData = d;
+      $ts.textContent = '更新: ' + new Date(d.generated_at).toLocaleString('ja-JP');
+      $status.textContent = `✓ ${Object.keys(d.stocks||{}).length}銘柄分析済`;
+      renderList();
+    } catch (e) {
+      $status.textContent = '⚠️ analysis.json 未取得';
+      $ts.textContent = 'GitHub Actions 実行待ち';
+      console.error('[analysis] err:', e);
+    }
+  }
+  loadAnalysis();
+  setInterval(loadAnalysis, 15 * 60 * 1000);
+})();
+</script>
+
 <section id="auto-snapshot">
   <h2>📡 自動取得データ <span id="snap-status" style="font-size:11px;color:#7a8aa3;margin-left:auto;">読込中...</span></h2>
   <div class="ts" id="snap-ts">--</div>

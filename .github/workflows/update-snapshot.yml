@@ -35,11 +35,15 @@ jobs:
       - name: Fetch data
         run: python scripts/fetch_data.py
 
+      - name: Fetch analysis (60key stocks: history+scenarios)
+        run: python scripts/fetch_analysis.py
+        continue-on-error: true
+
       - name: Commit & push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/snapshot.json
+          git add data/snapshot.json data/analysis.json
           if git diff --staged --quiet; then
             echo "no changes"
             exit 0
