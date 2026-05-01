@@ -1,0 +1,4 @@
+yfinance
+feedparser
+pyexcel
+pyexcel-xls
