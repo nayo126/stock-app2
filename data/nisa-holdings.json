@@ -1,0 +1,16 @@
+{
+  "account": "ジュニアNISA口座",
+  "broker": "SBI証券",
+  "holdings": [
+    {"code": "2134", "name": "キタハマキャピタル", "avg_price": 28.0, "shares": 700},
+    {"code": "2337", "name": "いちご", "avg_price": 356.0, "shares": 100},
+    {"code": "2721", "name": "JHD", "avg_price": 207.0, "shares": 2200},
+    {"code": "3664", "name": "WIZE", "avg_price": 65.0, "shares": 500},
+    {"code": "4564", "name": "OTS", "avg_price": 27.0, "shares": 3000},
+    {"code": "5103", "name": "昭和HD", "avg_price": 51.0, "shares": 400},
+    {"code": "5856", "name": "エルアイイーエイチ", "avg_price": 39.0, "shares": 4000},
+    {"code": "7201", "name": "日産自", "avg_price": 426.0, "shares": 100},
+    {"code": "7527", "name": "システムソフト", "avg_price": 78.0, "shares": 100}
+  ],
+  "note": "明細数11のうち9銘柄反映済み (画像範囲)。残り2銘柄は別途追加可。"
+}

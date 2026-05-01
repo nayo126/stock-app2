@@ -1442,13 +1442,13 @@ body > button[onclick*="auto-analysis"]:hover {
       <span class="icon">📡</span>
       <span>データ</span>
     </a>
+    <a class="bottom-nav-item" onclick="switchTab('nisa-holdings'); return false;" data-target="nisa-holdings">
+      <span class="icon">💼</span>
+      <span>NISA</span>
+    </a>
     <a class="bottom-nav-item" onclick="switchTab('chat'); return false;" data-target="chat">
       <span class="icon">💬</span>
       <span>チャット</span>
-    </a>
-    <a class="bottom-nav-item" onclick="switchTab('home'); return false;" data-target="home">
-      <span class="icon">🏠</span>
-      <span>ホーム</span>
     </a>
     <a class="bottom-nav-item" onclick="document.querySelector('.macos-sidebar').classList.toggle('open'); return false;">
       <span class="icon">☰</span>
@@ -1566,6 +1566,7 @@ window.switchTab = function(target) {
   <div class="tabs">
     <div class="tab active" data-tab="analysis">📊 詳細分析</div>
     <div class="tab" data-tab="autodata">📡 自動データ</div>
+    <div class="tab" data-tab="nisa-holdings">💼 NISA口座</div>
     <div class="tab" data-tab="chat">💬 AIチャット</div>
     <div class="tab" data-tab="home">🏠 ダッシュボード</div>
     <div class="tab" data-tab="watchlist">📋 保有銘柄</div>
@@ -1632,6 +1633,134 @@ window.switchTab = function(target) {
 
   <!-- 📡自動データタブ - 既存の #auto-snapshot セクションをここにJSで移動 -->
   <div class="tab-content" id="tab-autodata"></div>
+
+  <!-- 💼 NISA口座タブ - 保有銘柄+snapshot.jsonから損益自動計算 -->
+  <div class="tab-content" id="tab-nisa-holdings">
+    <div style="background:rgba(20,25,40,0.6); backdrop-filter:blur(28px); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px; margin-bottom:14px;">
+      <h2 style="margin:0 0 4px;">💼 NISA口座管理</h2>
+      <div style="font-size:12px; color:#888; margin-bottom:14px;">SBI証券 ジュニアNISA · リアルタイム連動</div>
+      <div id="nisa-stats" style="display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-bottom:16px;"></div>
+      <div id="nisa-table"></div>
+    </div>
+  </div>
+
+<style>
+.nisa-stat-card {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 12px;
+}
+.nisa-stat-card .lbl { font-size: 11px; color: #888; }
+.nisa-stat-card .val { font-size: 18px; font-weight: 700; margin-top: 2px; }
+.nisa-stat-card .val.up { color: #ff7392; }  /* SBI色 */
+.nisa-stat-card .val.dn { color: #64ffda; }  /* SBI色 */
+.nisa-row {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 8px;
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  align-items: center;
+}
+.nisa-row:hover { background: rgba(255,255,255,0.03); }
+.nisa-row .name { font-size: 13px; font-weight: 600; }
+.nisa-row .code { font-size: 10px; color: #888; }
+.nisa-row .price { text-align: right; font-size: 13px; }
+.nisa-row .pl { text-align: right; font-size: 13px; font-weight: 700; }
+.nisa-row .pl.up { color: #ff7392; }   /* 利益=赤 (日本式) */
+.nisa-row .pl.dn { color: #64ffda; }   /* 損失=緑 (日本式) */
+.nisa-header {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 8px;
+  padding: 8px 10px;
+  background: rgba(0,149,246,0.1);
+  border-radius: 8px 8px 0 0;
+  font-size: 11px;
+  color: #aaa;
+  font-weight: 600;
+}
+</style>
+
+<script>
+(async function() {
+  async function loadNisa() {
+    try {
+      const [hRes, sRes] = await Promise.all([
+        fetch('./data/nisa-holdings.json?t=' + Date.now(), {cache: 'no-store'}),
+        fetch('./data/snapshot.json?t=' + Date.now(), {cache: 'no-store'}),
+      ]);
+      const h = await hRes.json();
+      const s = await sRes.json();
+      renderNisa(h, s);
+    } catch (e) {
+      console.warn('[nisa] load err', e);
+    }
+  }
+  function renderNisa(h, s) {
+    const stocks = (s && s.stocks) || {};
+    let totalCost = 0, totalValue = 0;
+    const rows = (h.holdings || []).map(item => {
+      const cur = stocks[item.code] ? stocks[item.code].p : null;
+      const cost = item.avg_price * item.shares;
+      const value = cur ? cur * item.shares : 0;
+      const pl = value - cost;
+      const plPct = cost ? (pl / cost * 100) : 0;
+      totalCost += cost;
+      if (cur) totalValue += value;
+      const cls = pl >= 0 ? 'up' : 'dn';
+      return `
+        <div class="nisa-row">
+          <div>
+            <div class="name">${item.name}</div>
+            <div class="code">${item.code} · ${item.shares}株</div>
+          </div>
+          <div class="price">
+            <div>現在 ${cur != null ? cur.toLocaleString('ja-JP') : '--'}円</div>
+            <div style="font-size:10px; color:#888;">取得 ${item.avg_price.toLocaleString('ja-JP')}円</div>
+          </div>
+          <div class="pl ${cls}">
+            ${pl >= 0 ? '+' : ''}${Math.round(pl).toLocaleString('ja-JP')}円<br>
+            <span style="font-size:11px;">${plPct >= 0 ? '+' : ''}${plPct.toFixed(2)}%</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+    const totalPL = totalValue - totalCost;
+    const totalPLPct = totalCost ? (totalPL / totalCost * 100) : 0;
+    const cls = totalPL >= 0 ? 'up' : 'dn';
+    document.getElementById('nisa-stats').innerHTML = `
+      <div class="nisa-stat-card">
+        <div class="lbl">評価損益合計</div>
+        <div class="val ${cls}">${totalPL >= 0 ? '+' : ''}${Math.round(totalPL).toLocaleString('ja-JP')}円</div>
+      </div>
+      <div class="nisa-stat-card">
+        <div class="lbl">評価損益率</div>
+        <div class="val ${cls}">${totalPLPct >= 0 ? '+' : ''}${totalPLPct.toFixed(2)}%</div>
+      </div>
+      <div class="nisa-stat-card">
+        <div class="lbl">取得額合計</div>
+        <div class="val">${Math.round(totalCost).toLocaleString('ja-JP')}円</div>
+      </div>
+      <div class="nisa-stat-card">
+        <div class="lbl">時価評価額</div>
+        <div class="val">${Math.round(totalValue).toLocaleString('ja-JP')}円</div>
+      </div>
+    `;
+    document.getElementById('nisa-table').innerHTML = `
+      <div class="nisa-header">
+        <div>銘柄 / コード · 株数</div>
+        <div style="text-align:right;">現在値 / 取得</div>
+        <div style="text-align:right;">評価損益</div>
+      </div>
+      ${rows}
+    `;
+  }
+  loadNisa();
+  setInterval(loadNisa, 3 * 60 * 1000); // 3分毎再fetch
+})();
+</script>
 
   <div class="tab-content" id="tab-chat">
     <div class="chat-window">
