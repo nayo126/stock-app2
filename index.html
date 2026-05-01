@@ -833,7 +833,7 @@
   </header>
 
   <div class="risk-box">
-    ⚠️ このアプリは情報整理用で、株価上昇を保証するものではありません。株価は2026/4/20時点の参考値。投資判断は自己責任で。
+    ⚠️ このアプリは情報整理用で、株価上昇を保証するものではありません。株価は15分毎に自動更新（GitHub Actions経由）。投資判断は自己責任で。
   </div>
 
   <div class="stats-row">
@@ -2010,8 +2010,8 @@
 
     <!-- Version -->
     <div style="text-align: center; color: var(--text-dim); font-size: 10px; padding: 20px 0;">
-      Investment Dashboard v1.0<br>
-      2026-04-20 · ローカル保存 · 自己責任で
+      Investment Dashboard v1.1<br>
+      自動更新中 · ローカル保存 · 自己責任で
     </div>
   </div>
 </div>
@@ -2221,7 +2221,7 @@ function stockCardHTML(stock, listId) {
         </div>
         <div>
           <div class="stock-price">${priceText}</div>
-          <div class="stock-price-label">4/20時点</div>
+          <div class="stock-price-label">${(stock._live ? '自動更新' : '4/20時点')}</div>
         </div>
       </div>
       <div class="stock-meta">
