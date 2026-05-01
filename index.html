@@ -1406,11 +1406,7 @@ body > button[onclick*="auto-analysis"]:hover {
 <!-- ===== iOS風 下部固定ナビ (mobile) ===== -->
 <nav class="bottom-nav">
   <div class="bottom-nav-grid">
-    <a class="bottom-nav-item active" onclick="switchTab('home'); return false;" data-target="home">
-      <span class="icon">🏠</span>
-      <span>ホーム</span>
-    </a>
-    <a class="bottom-nav-item" onclick="switchTab('analysis'); return false;" data-target="analysis">
+    <a class="bottom-nav-item active" onclick="switchTab('analysis'); return false;" data-target="analysis">
       <span class="icon">📊</span>
       <span>分析</span>
     </a>
@@ -1421,6 +1417,10 @@ body > button[onclick*="auto-analysis"]:hover {
     <a class="bottom-nav-item" onclick="switchTab('chat'); return false;" data-target="chat">
       <span class="icon">💬</span>
       <span>チャット</span>
+    </a>
+    <a class="bottom-nav-item" onclick="switchTab('home'); return false;" data-target="home">
+      <span class="icon">🏠</span>
+      <span>ホーム</span>
     </a>
     <a class="bottom-nav-item" onclick="document.querySelector('.macos-sidebar').classList.toggle('open'); return false;">
       <span class="icon">☰</span>
@@ -1540,10 +1540,10 @@ window.switchTab = function(target) {
 
   <div class="main-layout">
   <div class="tabs">
-    <div class="tab active" data-tab="home">🏠 ダッシュボード</div>
-    <div class="tab" data-tab="chat">💬 AIチャット</div>
-    <div class="tab" data-tab="analysis">📊 詳細分析</div>
+    <div class="tab active" data-tab="analysis">📊 詳細分析</div>
     <div class="tab" data-tab="autodata">📡 自動データ</div>
+    <div class="tab" data-tab="chat">💬 AIチャット</div>
+    <div class="tab" data-tab="home">🏠 ダッシュボード</div>
     <div class="tab" data-tab="watchlist">📋 保有銘柄</div>
     <div class="tab" data-tab="advisor">🤖 AIアドバイザー</div>
     <div class="tab" data-tab="daytrade">🎓 デイトレ訓練</div>
@@ -1557,7 +1557,7 @@ window.switchTab = function(target) {
   <div class="content-area">
 
   <!-- 🏠ホームタブ - ヘッダ + risk-box + stats-row をここにJSで移動 + タイルメニュー -->
-  <div class="tab-content active" id="tab-home">
+  <div class="tab-content" id="tab-home">
     <!-- スマホ用: 主要機能タイル -->
     <div class="home-tiles">
       <a class="home-tile primary" onclick="switchTab('analysis'); return false;">
@@ -1603,8 +1603,8 @@ window.switchTab = function(target) {
     </div>
   </div>
 
-  <!-- 📊詳細分析タブ - 既存の #auto-analysis セクションをここにJSで移動 -->
-  <div class="tab-content" id="tab-analysis"></div>
+  <!-- 📊詳細分析タブ - default active で起動時に表示 -->
+  <div class="tab-content active" id="tab-analysis"></div>
 
   <!-- 📡自動データタブ - 既存の #auto-snapshot セクションをここにJSで移動 -->
   <div class="tab-content" id="tab-autodata"></div>
