@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
 """
-株価とニュースを取得して data/snapshot.json に保存
-GitHub Actions で1時間毎に実行される
+東証全銘柄（プライム+スタンダード+グロース）の株価＋指数＋ニュース全部取得
+GitHub Actions で1時間毎に実行、data/snapshot.json に保存
 """
 import json
 import os
 import sys
+import time
+import urllib.request
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 import yfinance as yf
 import feedparser
+import pyexcel
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
@@ -18,63 +21,117 @@ DATA_DIR.mkdir(exist_ok=True)
 
 JST = timezone(timedelta(hours=9))
 
+# JPX 公式: 東証上場全銘柄一覧
+JPX_XLS_URL = "https://www.jpx.co.jp/markets/statistics-equities/misc/tvdivq0000001vg2-att/data_j.xls"
+JPX_CACHE = DATA_DIR / "jpx_codes_cache.json"
+JPX_CACHE_TTL = 24 * 3600  # 1日
 
-def load_stocks():
-    """data/stocks-list.json から監視銘柄を読む"""
-    with open(DATA_DIR / "stocks-list.json", encoding="utf-8") as f:
-        return json.load(f)
 
+def load_all_tse_codes():
+    """JPX Excel から東証全銘柄コード取得（プライム/スタンダード/グロース）"""
+    # キャッシュチェック
+    if JPX_CACHE.exists():
+        age = time.time() - JPX_CACHE.stat().st_mtime
+        if age < JPX_CACHE_TTL:
+            with open(JPX_CACHE) as f:
+                cached = json.load(f)
+                print(f"[jpx] cache hit: {len(cached)} codes (age {int(age)}s)")
+                return cached
 
-def fetch_stocks_prices(codes):
-    """日本株の現在値・前日比・出来高をまとめて取得"""
-    tickers = [f"{c}.T" for c in codes]
-    print(f"[stocks] fetching {len(tickers)} tickers...")
-    # yf.download で一括取得（高速）
-    data = yf.download(
-        tickers=tickers,
-        period="5d",
-        interval="1d",
-        group_by="ticker",
-        auto_adjust=False,
-        threads=True,
-        progress=False,
-    )
-    out = {}
-    for code in codes:
-        sym = f"{code}.T"
+    print(f"[jpx] downloading {JPX_XLS_URL}")
+    try:
+        # User-Agent 必要 (JPX サイト)
+        req = urllib.request.Request(JPX_XLS_URL, headers={"User-Agent": "Mozilla/5.0"})
+        xls_path = DATA_DIR / "_jpx.xls"
+        with urllib.request.urlopen(req, timeout=60) as r, open(xls_path, "wb") as f:
+            f.write(r.read())
+        # pyexcel で xls 読み込み（pandas依存なし）
+        records = pyexcel.get_records(file_name=str(xls_path))
+        codes = []
+        for row in records:
+            code = str(row.get("コード", "")).strip()
+            market = str(row.get("市場・商品区分", "")).strip()
+            if not code.isdigit() or len(code) != 4:
+                continue
+            if any(k in market for k in ["プライム", "スタンダード", "グロース"]):
+                codes.append(code)
+        codes = sorted(set(codes))
+        # キャッシュ保存
+        with open(JPX_CACHE, "w") as f:
+            json.dump(codes, f)
         try:
-            if len(tickers) == 1:
-                df = data
-            else:
-                df = data[sym] if sym in data.columns.get_level_values(0) else None
-            if df is None or df.empty:
-                continue
-            df = df.dropna()
-            if df.empty:
-                continue
-            last = df.iloc[-1]
-            prev = df.iloc[-2] if len(df) >= 2 else None
-            entry = {
-                "price": round(float(last["Close"]), 2),
-                "open": round(float(last["Open"]), 2),
-                "high": round(float(last["High"]), 2),
-                "low": round(float(last["Low"]), 2),
-                "volume": int(last["Volume"]) if last["Volume"] == last["Volume"] else 0,
-            }
-            if prev is not None:
-                pc = float(prev["Close"])
-                entry["prev_close"] = round(pc, 2)
-                entry["change"] = round(entry["price"] - pc, 2)
-                entry["change_pct"] = round((entry["price"] - pc) / pc * 100, 2)
-            out[code] = entry
+            xls_path.unlink()
+        except Exception:
+            pass
+        print(f"[jpx] got {len(codes)} TSE codes")
+        return codes
+    except Exception as e:
+        print(f"[jpx] err: {e}", file=sys.stderr)
+        # フォールバック: 旧 stocks-list.json
+        fallback = DATA_DIR / "stocks-list.json"
+        if fallback.exists():
+            with open(fallback) as f:
+                d = json.load(f)
+                print(f"[jpx] fallback to stocks-list.json: {len(d.get('stocks_jp', []))} codes")
+                return d.get("stocks_jp", [])
+        return []
+
+
+def fetch_stocks_prices(codes, chunk_size=200):
+    """日本株を chunk 単位で bulk download"""
+    out = {}
+    total = len(codes)
+    for i in range(0, total, chunk_size):
+        chunk = codes[i:i + chunk_size]
+        tickers = [f"{c}.T" for c in chunk]
+        print(f"[stocks] chunk {i//chunk_size + 1}/{-(-total//chunk_size)}: {len(tickers)} tickers")
+        try:
+            data = yf.download(
+                tickers=tickers,
+                period="5d",
+                interval="1d",
+                group_by="ticker",
+                auto_adjust=False,
+                threads=True,
+                progress=False,
+            )
+            for code in chunk:
+                sym = f"{code}.T"
+                try:
+                    if len(tickers) == 1:
+                        df = data
+                    else:
+                        if sym not in data.columns.get_level_values(0):
+                            continue
+                        df = data[sym]
+                    if df is None or df.empty:
+                        continue
+                    df = df.dropna()
+                    if df.empty:
+                        continue
+                    last = df.iloc[-1]
+                    prev = df.iloc[-2] if len(df) >= 2 else None
+                    entry = {
+                        "p": round(float(last["Close"]), 2),
+                        "v": int(last["Volume"]) if last["Volume"] == last["Volume"] else 0,
+                    }
+                    if prev is not None:
+                        pc = float(prev["Close"])
+                        entry["pc"] = round(pc, 2)
+                        entry["c"] = round(entry["p"] - pc, 2)
+                        entry["cp"] = round((entry["p"] - pc) / pc * 100, 2) if pc else 0
+                    out[code] = entry
+                except Exception as e:
+                    pass
         except Exception as e:
-            print(f"[stocks] err {code}: {e}", file=sys.stderr)
-    print(f"[stocks] got {len(out)}/{len(codes)} prices")
+            print(f"[stocks] chunk err: {e}", file=sys.stderr)
+        # rate limit回避
+        time.sleep(1)
+    print(f"[stocks] got {len(out)}/{total} prices")
     return out
 
 
 def fetch_indices():
-    """主要指数（日経・TOPIX・ダウ・S&P500・ナスダック）"""
     indices = {
         "日経平均": "^N225",
         "TOPIX": "^TPX",
@@ -105,39 +162,33 @@ def fetch_indices():
     return out
 
 
-# RSS feed list - 投資・マーケット系を幅広く
 FEEDS = [
-    # 国内マーケット
     ("Yahoo!ファイナンス トピックス", "https://news.yahoo.co.jp/rss/topics/business.xml"),
     ("Yahoo!ファイナンス 経済ニュース", "https://news.yahoo.co.jp/rss/categories/business.xml"),
     ("Reuters Japan", "https://assets.wor.jp/rss/rdf/reuters/top.rdf"),
     ("Bloomberg Japan", "https://assets.wor.jp/rss/rdf/bloomberg/top.rdf"),
-    ("日経 マーケット", "https://www.nikkei.com/markets/rss/"),
-    ("ロイター ビジネス", "https://www.reuters.co.jp/feed/businessNews"),
     ("ZUU online", "https://zuuonline.com/feed"),
-    ("マイナビニュース 経済", "https://news.mynavi.jp/rss/index_economy"),
     ("東洋経済 マーケット", "https://toyokeizai.net/list/feed/rss"),
     ("Diamond Online", "https://diamond.jp/list/feed/rss/dol"),
-    ("マネックス証券", "https://media.monex.co.jp/index.xml"),
-    ("みんかぶマガジン", "https://itf.minkabu.jp/news/rss/atom"),
-    # 海外マーケット (英語)
     ("CNBC Markets", "https://www.cnbc.com/id/10000664/device/rss/rss.html"),
     ("CNBC Top News", "https://www.cnbc.com/id/100003114/device/rss/rss.html"),
-    ("Reuters Business", "https://feeds.reuters.com/reuters/businessNews"),
     ("Investing.com", "https://www.investing.com/rss/news_25.rss"),
     ("Seeking Alpha", "https://seekingalpha.com/market_currents.xml"),
     ("MarketWatch Top Stories", "https://feeds.content.dowjones.io/public/rss/mw_topstories"),
+    ("MarketWatch RealTime", "https://feeds.content.dowjones.io/public/rss/mw_realtimeheadlines"),
+    ("Reuters Top News", "https://www.reutersagency.com/feed/?best-topics=business-finance"),
+    ("Forbes Japan", "https://forbesjapan.com/feed"),
+    ("ITmedia Business", "https://rss.itmedia.co.jp/rss/2.0/business.xml"),
+    ("Newsweek Japan", "https://www.newsweekjapan.jp/rss/news.xml"),
 ]
 
 
 def fetch_news():
-    """RSS 大量取得→平準化→マージ"""
     all_items = []
     for source_name, url in FEEDS:
         try:
             f = feedparser.parse(url)
             for entry in f.entries[:30]:
-                # 日付parse
                 pub = entry.get("published_parsed") or entry.get("updated_parsed")
                 pub_iso = ""
                 pub_ts = 0
@@ -159,9 +210,7 @@ def fetch_news():
             print(f"[news] {source_name}: {len(f.entries)}")
         except Exception as e:
             print(f"[news] err {source_name}: {e}", file=sys.stderr)
-    # 新しい順
     all_items.sort(key=lambda x: x["ts"], reverse=True)
-    # 重複除去（タイトル基準）
     seen = set()
     deduped = []
     for it in all_items:
@@ -171,12 +220,12 @@ def fetch_news():
         seen.add(key)
         deduped.append(it)
     print(f"[news] total {len(deduped)} after dedupe")
-    return deduped[:200]  # 最大200件
+    return deduped[:300]
 
 
 def main():
-    stocks_list = load_stocks()
-    codes = stocks_list.get("stocks_jp", [])
+    codes = load_all_tse_codes()
+    print(f"[main] target {len(codes)} stocks")
 
     snapshot = {
         "generated_at": datetime.now(JST).isoformat(),
@@ -189,8 +238,10 @@ def main():
 
     out_path = DATA_DIR / "snapshot.json"
     with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(snapshot, f, ensure_ascii=False, indent=2)
-    print(f"[done] {out_path} ({out_path.stat().st_size} bytes)")
+        # 圧縮のため separators 詰める（インデント無し）
+        json.dump(snapshot, f, ensure_ascii=False, separators=(",", ":"))
+    size_kb = out_path.stat().st_size / 1024
+    print(f"[done] {out_path} ({size_kb:.1f} KB)")
     print(f"  stocks: {len(snapshot['stocks'])}/{len(codes)}")
     print(f"  indices: {len(snapshot['indices'])}")
     print(f"  news: {len(snapshot['news'])}")

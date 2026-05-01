@@ -6627,20 +6627,31 @@ refreshAll();
 
   function renderStocks(sort) {
     if (!snapshotData) return;
-    let entries = Object.entries(snapshotData.stocks || {});
-    if (sort === 'chg-desc') entries.sort((a,b) => (b[1].change_pct||-9999) - (a[1].change_pct||-9999));
-    else if (sort === 'chg-asc') entries.sort((a,b) => (a[1].change_pct||9999) - (b[1].change_pct||9999));
+    // 軽量フォーマット (p/c/cp/v) と旧フォーマット (price/change/change_pct/volume) 両対応
+    let entries = Object.entries(snapshotData.stocks || {}).map(([code, v]) => {
+      return [code, {
+        price: v.p ?? v.price,
+        change: v.c ?? v.change,
+        change_pct: v.cp ?? v.change_pct,
+        volume: v.v ?? v.volume,
+      }];
+    });
+    if (sort === 'chg-desc') entries.sort((a,b) => (b[1].change_pct ?? -9999) - (a[1].change_pct ?? -9999));
+    else if (sort === 'chg-asc') entries.sort((a,b) => (a[1].change_pct ?? 9999) - (b[1].change_pct ?? 9999));
     else if (sort === 'vol') entries.sort((a,b) => (b[1].volume||0) - (a[1].volume||0));
     else entries.sort((a,b) => a[0].localeCompare(b[0]));
 
-    $stocksGrid.innerHTML = entries.map(([code, v]) => {
+    // 全銘柄(数千)をDOM一気生成すると遅い → 上位500件まで
+    const TOP = 500;
+    const display = entries.slice(0, TOP);
+    $stocksGrid.innerHTML = display.map(([code, v]) => {
       const cls = (v.change||0) >= 0 ? 'up' : 'dn';
       return `<div class="snap-card">
         <div class="name">${code}</div>
         <div class="price">${fmtNum(v.price)}</div>
         <div class="chg ${cls}">${fmtPct(v.change_pct)}</div>
       </div>`;
-    }).join('');
+    }).join('') + (entries.length > TOP ? `<div style="grid-column:1/-1;color:#7a8aa3;font-size:11px;text-align:center;padding:8px;">上位${TOP}件表示中 / 全${entries.length}銘柄取得済み</div>` : '');
   }
 
   function renderNews(d) {

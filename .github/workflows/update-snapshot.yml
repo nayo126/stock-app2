@@ -16,7 +16,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
 
@@ -29,7 +29,7 @@ jobs:
       - name: Install deps
         run: |
           pip install --upgrade pip
-          pip install yfinance feedparser
+          pip install yfinance feedparser pyexcel pyexcel-xls
 
       - name: Fetch data
         run: python scripts/fetch_data.py
